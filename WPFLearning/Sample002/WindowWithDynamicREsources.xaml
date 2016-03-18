@@ -1,0 +1,30 @@
+﻿<Window x:Class="Sample002.WindowWithDynamicREsources"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
+        xmlns:local="clr-namespace:Sample002"
+        mc:Ignorable="d"
+        Title="WindowWithDynamicREsources" Height="300" Width="300"
+        Background="{DynamicResource WindowBackgroundBrush}">
+    <Window.Resources>
+        <LinearGradientBrush x:Key="WindowBackgroundBrush">
+            <GradientStop Offset="0" Color="Green" />
+            <GradientStop Offset="1" Color="Silver" />
+        </LinearGradientBrush>
+
+        <x:Array x:Key="ComboboxItems" Type="sys:String">
+            <sys:String>List Item1</sys:String>
+            <sys:String>List Item2</sys:String>
+            <sys:String>List Item3</sys:String>
+        </x:Array>
+
+        <sys:String x:Key="CombobxTitle">List Items:</sys:String>
+    </Window.Resources>
+
+    <StackPanel Margin="10">
+        <Label Content="{StaticResource CombobxTitle}" />
+        <ComboBox ItemsSource="{StaticResource ComboboxItems}" SelectedItem="0"/>
+    </StackPanel>
+</Window>
