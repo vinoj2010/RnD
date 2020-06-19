@@ -1,0 +1,12 @@
+C:\Users\vinoj\source\repos\RnD\ObfuscationChecker\ObfuscationCheckerClient\bin\Debug\ObfuscationCheckerClient.exe
+C:\Users\vinoj\source\repos\RnD\ObfuscationChecker\ObfuscationCheckerClient\bin\Debug\ObfuscationCheckerClient.pdb
+C:\Users\vinoj\source\repos\RnD\ObfuscationChecker\ObfuscationCheckerClient\bin\Debug\ObfuscationCheckerLib.dll
+C:\Users\vinoj\source\repos\RnD\ObfuscationChecker\ObfuscationCheckerClient\bin\Debug\ObfuscationCheckerLib.pdb
+C:\Users\vinoj\source\repos\RnD\ObfuscationChecker\ObfuscationCheckerClient\obj\Debug\ObfuscationCheckerClient.csprojAssemblyReference.cache
+C:\Users\vinoj\source\repos\RnD\ObfuscationChecker\ObfuscationCheckerClient\obj\Debug\ObfuscationCheckerClient.csproj.CoreCompileInputs.cache
+C:\Users\vinoj\source\repos\RnD\ObfuscationChecker\ObfuscationCheckerClient\obj\Debug\ObfuscationCheckerClient.csproj.CopyComplete
+C:\Users\vinoj\source\repos\RnD\ObfuscationChecker\ObfuscationCheckerClient\obj\Debug\ObfuscationCheckerClient.exe
+C:\Users\vinoj\source\repos\RnD\ObfuscationChecker\ObfuscationCheckerClient\obj\Debug\ObfuscationCheckerClient.pdb
+C:\Users\vinoj\source\repos\RnD\ObfuscationChecker\ObfuscationCheckerClient\bin\Debug\ObfuscationCheckerClient.exe.config
+C:\Users\vinoj\source\repos\RnD\ObfuscationChecker\ObfuscationCheckerClient\bin\Debug\System.IO.SafeTraversal.dll
+C:\Users\vinoj\source\repos\RnD\ObfuscationChecker\ObfuscationCheckerClient\bin\Debug\System.IO.SafeTraversal.xml

@@ -1,0 +1,1971 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>System.IO.SafeTraversal</name>
+    </assembly>
+    <members>
+        <member name="T:System.IO.SafeTraversal.SafeTraversal">
+            <summary>
+            Core class to perform all traversal operations.
+            </summary>
+        </member>
+        <member name="M:System.IO.SafeTraversal.SafeTraversal.GetFiles(System.IO.DirectoryInfo)">
+            <summary>
+            Iterates files within top level directories.
+            </summary>
+            <param name="path">Target path.</param>
+            <returns>An IEnumerable of FileInfo.</returns>
+            <exception cref="T:System.ArgumentNullException">`path` cannot be null.</exception>
+            <exception cref="T:System.IO.DirectoryNotFoundException">`path` doesn't exist.</exception>
+        </member>
+        <member name="M:System.IO.SafeTraversal.SafeTraversal.GetFiles(System.IO.DirectoryInfo,System.IO.SearchOption)">
+            <summary>
+            Iterates files using search option.
+            </summary>
+            <param name="path">Target path.</param>
+            <param name="searchOption"> Specifies whether to search the current directory, or the current directory and all subdirectories.</param>
+            <returns>An IEnumerable of FileInfo.</returns>
+            <exception cref="T:System.ArgumentNullException">`path` cannot be null.</exception>
+            <exception cref="T:System.IO.DirectoryNotFoundException">`path` doesn't exist.</exception>
+        </member>
+        <member name="M:System.IO.SafeTraversal.SafeTraversal.GetFiles(System.IO.DirectoryInfo,System.IO.SearchOption,System.Func{System.IO.FileInfo,System.Boolean})">
+            <summary>
+            Iterates files using search option and custom filter.
+            </summary>
+            <param name="path">Target path.</param>
+            <param name="searchOption"> Specifies whether to search the current directory, or the current directory and all subdirectories.</param>
+            <param name="filter">Custom filter to filter files based on condition.</param>
+            <returns>An IEnumerable of FileInfo.</returns>
+            <exception cref="T:System.ArgumentNullException">`path` cannot be null.</exception>
+            <exception cref="T:System.IO.DirectoryNotFoundException">`path` doesn't exist.</exception>
+            <exception cref="T:System.ArgumentNullException">`filter` cannot be null.</exception>
+        </member>
+        <member name="M:System.IO.SafeTraversal.SafeTraversal.GetFiles(System.IO.DirectoryInfo,System.IO.SearchOption,System.IO.SafeTraversal.CommonSize)">
+            <summary>
+            Iteratess files using search option and filters based on the common size
+            </summary>
+            <param name="path">Target path.</param>
+            <param name="searchOption"> Specifies whether to search the current directory, or the current directory and all subdirectories.</param>
+            <param name="commonSize">Windows's explorer-like size filtering option.</param>
+            <returns>An IEnumerable of FileInfo.</returns>
+            <exception cref="T:System.ArgumentNullException">`path` cannot be null.</exception>
+            <exception cref="T:System.IO.DirectoryNotFoundException">`path` doesn't exist.</exception>
+        </member>
+        <member name="M:System.IO.SafeTraversal.SafeTraversal.GetFiles(System.IO.DirectoryInfo,System.IO.SearchOption,System.IO.SafeTraversal.SearchFileByNameOption)">
+            <summary>
+            Iterates files using search option and filters based on search file by name option.
+            </summary>
+            <param name="path">Target path.</param>
+            <param name="searchOption"> Specifies whether to search the current directory, or the current directory and all subdirectories.</param>
+            <param name="searchFileByName">Specified option to filter files based on the name.</param>
+            <returns>An IEnumerable of FileInfo.</returns>
+            <exception cref="T:System.ArgumentNullException">`path` cannot be null.</exception>
+            <exception cref="T:System.IO.DirectoryNotFoundException">`path` doesn't exist.</exception>
+            <exception cref="T:System.ArgumentNullException">`searchFileByName` cannot be null.</exception>
+        </member>
+        <member name="M:System.IO.SafeTraversal.SafeTraversal.GetFiles(System.IO.DirectoryInfo,System.IO.SearchOption,System.IO.SafeTraversal.SearchFileBySizeOption)">
+            <summary>
+            Iterates files using search option and filters based on size.
+            </summary>
+            <param name="path">Target path.</param>
+            <param name="searchOption">Specifies whether to search the current directory, or the current directory and all subdirectories.</param>
+            <param name="searchFileBySize">Specifies size option (B, KB, MB.. PB)</param>
+            <returns>An IEnumerable of FileInfo.</returns>
+            <exception cref="T:System.ArgumentNullException">`path` cannot be null.</exception>
+            <exception cref="T:System.IO.DirectoryNotFoundException">`path` doesn't exist.</exception>
+            <exception cref="T:System.ArgumentNullException">`searchFileBySize` cannot be null.</exception>
+        </member>
+        <member name="M:System.IO.SafeTraversal.SafeTraversal.GetFiles(System.IO.DirectoryInfo,System.IO.SearchOption,System.IO.SafeTraversal.SearchFileBySizeRangeOption)">
+            <summary>
+            Iterates files using search option and filters based on size range.
+            </summary>
+            <param name="path">Target path.</param>
+            <param name="searchOption">Specifies whether to search the current directory, or the current directory and all subdirectories.</param>
+            <param name="searchFileBySizeRange">Specifies size range option (B, KB, MB.. PB).</param>
+            <returns>An IEnumerable of FileInfo.</returns>
+            <exception cref="T:System.ArgumentNullException">`path` cannot be null.</exception>
+            <exception cref="T:System.IO.DirectoryNotFoundException">`path` doesn't exist.</exception>
+            <exception cref="T:System.ArgumentNullException">`searchFileBySizeRange` cannot be null.</exception>
+        </member>
+        <member name="M:System.IO.SafeTraversal.SafeTraversal.GetFiles(System.IO.DirectoryInfo,System.IO.SearchOption,System.IO.SafeTraversal.SearchFileByDateOption)">
+            <summary>
+            Iterates files using search option and filters based on date (creation, last access, last modified).
+            </summary>
+            <param name="path">Target path.</param>
+            <param name="searchOption">Specifies whether to search the current directory, or the current directory and all subdirectories.</param>
+            <param name="searchFileByDate">Date option used for filtering.</param>
+            <returns>An IEnumerable of FileInfo.</returns>
+            <exception cref="T:System.ArgumentNullException">`path` cannot be null.</exception>
+            <exception cref="T:System.IO.DirectoryNotFoundException">`path` doesn't exist.</exception>
+            <exception cref="T:System.ArgumentNullException">`searchFileByDate` cannot be null.</exception>
+        </member>
+        <member name="M:System.IO.SafeTraversal.SafeTraversal.GetFiles(System.IO.DirectoryInfo,System.IO.SearchOption,System.IO.SafeTraversal.SearchFileByDateRangeOption)">
+            <summary>
+            Iterates files using search option and filters based on date range (creation, last access, last modified).
+            </summary>
+            <param name="path">Target path.</param>
+            <param name="searchOption">Specifies whether to search the current directory, or the current directory and all subdirectories.</param>
+            <param name="searchFileByDateRange">Date range option used for filtering.</param>
+            <returns>An IEnumerable of FileInfo.</returns>
+            <exception cref="T:System.ArgumentNullException">`path` cannot be null.</exception>
+            <exception cref="T:System.IO.DirectoryNotFoundException">`path` doesn't exist.</exception>
+            <exception cref="T:System.ArgumentNullException">`searchFileByDateRange` cannot be null.</exception>
+        </member>
+        <member name="M:System.IO.SafeTraversal.SafeTraversal.GetFiles(System.IO.DirectoryInfo,System.IO.SearchOption,System.IO.SafeTraversal.SearchFileByRegularExpressionOption)">
+            <summary>
+            Iterates files using search option and filters based on regular expression pattern.
+            </summary>
+            <param name="path">Target path.</param>
+            <param name="searchOption">Specifies whether to search the current directory, or the current directory and all subdirectories.</param>
+            <param name="searchFileByRegularExpressionPattern">Regular expression pattern.</param>
+            <returns>An IEnumerable of FileInfo.</returns>
+            <exception cref="T:System.ArgumentNullException">`path` cannot be null.</exception>
+            <exception cref="T:System.IO.DirectoryNotFoundException">`path` doesn't exist.</exception>
+            <exception cref="T:System.ArgumentNullException">`searchFileByRegularExpressionPattern` cannot be null.</exception>
+        </member>
+        <member name="M:System.IO.SafeTraversal.SafeTraversal.GetFiles(System.IO.DirectoryInfo,System.IO.SearchOption,System.IO.SafeTraversal.SafeTraversalFileSearchOptions)">
+            <summary>
+            Iterates files using search option and filters based on composite option.
+            </summary>
+            <param name="path">Target path.</param>
+            <param name="searchOption">Specifies whether to search the current directory, or the current directory and all subdirectories.</param>
+            <param name="fileSearchOptions">Composite option that holds many options for filtering.</param>
+            <returns>An IEnumerable of FileInfo.</returns>
+            <exception cref="T:System.ArgumentNullException">`path` cannot be null.</exception>
+            <exception cref="T:System.IO.DirectoryNotFoundException">`path` doesn't exist.</exception>
+            <exception cref="T:System.ArgumentNullException">`fileSearchOptions` cannot be null.</exception>
+        </member>
+        <member name="M:System.IO.SafeTraversal.SafeTraversal.GetFiles(System.IO.DirectoryInfo,System.Boolean)">
+            <summary>
+            Iterates files within top level directories.
+            Result of this operation is guaranteed to be safe for 
+            IO operation by specifying `fileSafetyChecking` paramater to `true` (For NTFS file system).
+            </summary>
+            <param name="path">Target path.</param>
+            <param name="fileSafetyChecking">If sets to true then result of the operation can be used directly for IO operation (For NTFS file system). Safer but slower.</param>
+            <returns>An IEnumerable of FileInfo.</returns>
+            <exception cref="T:System.ArgumentNullException">`path` cannot be null.</exception>
+            <exception cref="T:System.IO.DirectoryNotFoundException">`path` doesn't exist.</exception>
+        </member>
+        <member name="M:System.IO.SafeTraversal.SafeTraversal.GetFiles(System.IO.DirectoryInfo,System.Boolean,System.IO.SearchOption)">
+            <summary>
+            Iterates files using search option.
+            Result of this operation is guaranteed to be safe for 
+            IO operation by specifying `fileSafetyChecking` paramater to `true` (For NTFS file system).
+            </summary>
+            <param name="path">Target path.</param>
+            <param name="fileSafetyChecking">If sets to true then result of the operation can be used directly for IO operation (For NTFS file system). Safer but slower.</param>
+            <param name="searchOption">Specifies whether to search the current directory, or the current directory and all subdirectories.</param>
+            <returns>An IEnumerable of FileInfo.</returns>
+            <exception cref="T:System.ArgumentNullException">`path` cannot be null.</exception>
+            <exception cref="T:System.IO.DirectoryNotFoundException">`path` doesn't exist.</exception>
+        </member>
+        <member name="M:System.IO.SafeTraversal.SafeTraversal.GetFiles(System.IO.DirectoryInfo,System.Boolean,System.IO.SearchOption,System.Func{System.IO.FileInfo,System.Boolean})">
+            <summary>
+            Iterates files using search option and custom filter.
+            Result of this operation is guaranteed to be safe for 
+            IO operation by specifying `fileSafetyChecking` paramater to `true` (For NTFS file system).
+            </summary>
+            <param name="path">Target path.</param>
+            <param name="fileSafetyChecking">If sets to true then result of the operation can be used directly for IO operation (For NTFS file system). Safer but slower.</param>
+            <param name="searchOption">Specifies whether to search the current directory, or the current directory and all subdirectories.</param>
+            <param name="filter">Custom filter to filter files based on condition.</param>
+            <returns>An IEnumerable of FileInfo.</returns>
+            <exception cref="T:System.ArgumentNullException">`path` cannot be null.</exception>
+            <exception cref="T:System.IO.DirectoryNotFoundException">`path` doesn't exist.</exception>
+            <exception cref="T:System.ArgumentNullException">`filter` cannot be null.</exception>
+        </member>
+        <member name="M:System.IO.SafeTraversal.SafeTraversal.GetFiles(System.IO.DirectoryInfo,System.Boolean,System.IO.SearchOption,System.IO.SafeTraversal.CommonSize)">
+            <summary>
+            Iteratess files using search option and filters based on the common size
+            Result of this operation is guaranteed to be safe for 
+            IO operation by specifying `fileSafetyChecking` paramater to `true` (For NTFS file system).
+            </summary>
+            <param name="path">Target path.</param>
+            <param name="fileSafetyChecking">If sets to true then result of the operation can be used directly for IO operation (For NTFS file system). Safer but slower.</param>
+            <param name="searchOption">Specifies whether to search the current directory, or the current directory and all subdirectories.</param>
+            <param name="commonSize">Windows's explorer-like size filtering option.</param>
+            <returns>An IEnumerable of FileInfo.</returns>
+            <exception cref="T:System.ArgumentNullException">`path` cannot be null.</exception>
+            <exception cref="T:System.IO.DirectoryNotFoundException">`path` doesn't exist.</exception>
+        </member>
+        <member name="M:System.IO.SafeTraversal.SafeTraversal.GetFiles(System.IO.DirectoryInfo,System.Boolean,System.IO.SearchOption,System.IO.SafeTraversal.SearchFileByNameOption)">
+            <summary>
+            Iterates files using search option and filters based on search file by name option.
+            Result of this operation is guaranteed to be safe for 
+            IO operation by specifying `fileSafetyChecking` paramater to `true` (For NTFS file system).
+            </summary>
+            <param name="path">Target path.</param>
+            <param name="fileSafetyChecking">If sets to true then result of the operation can be used directly for IO operation (For NTFS file system). Safer but slower.</param>
+            <param name="searchOption">Specifies whether to search the current directory, or the current directory and all subdirectories.</param>
+            <param name="searchFileByName">Specified option to filter files based on the name.</param>
+            <returns>An IEnumerable of FileInfo.</returns>
+            <exception cref="T:System.ArgumentNullException">`path` cannot be null.</exception>
+            <exception cref="T:System.IO.DirectoryNotFoundException">`path` doesn't exist.</exception>
+            <exception cref="T:System.ArgumentNullException">`searchFileByName` cannot be null.</exception>
+        </member>
+        <member name="M:System.IO.SafeTraversal.SafeTraversal.GetFiles(System.IO.DirectoryInfo,System.Boolean,System.IO.SearchOption,System.IO.SafeTraversal.SearchFileBySizeOption)">
+            <summary>
+            Iterates files using search option and filters based on size.
+            Result of this operation is guaranteed to be safe for 
+            IO operation by specifying `fileSafetyChecking` paramater to `true` (For NTFS file system).
+            </summary>
+            <param name="path">Target path.</param>
+            <param name="fileSafetyChecking">If sets to true then result of the operation can be used directly for IO operation (For NTFS file system). Safer but slower.</param>
+            <param name="searchOption">Specifies whether to search the current directory, or the current directory and all subdirectories.</param>
+            <param name="searchFileBySize">Specifies size option (B, KB, MB.. PB)</param>
+            <returns>An IEnumerable of FileInfo.</returns>
+            <exception cref="T:System.ArgumentNullException">`path` cannot be null.</exception>
+            <exception cref="T:System.IO.DirectoryNotFoundException">`path` doesn't exist.</exception>
+            <exception cref="T:System.ArgumentNullException">`searchFileBySize` cannot be null.</exception>
+        </member>
+        <member name="M:System.IO.SafeTraversal.SafeTraversal.GetFiles(System.IO.DirectoryInfo,System.Boolean,System.IO.SearchOption,System.IO.SafeTraversal.SearchFileBySizeRangeOption)">
+            <summary>
+            Iterates files using search option and filters based on size range.
+            Result of this operation is guaranteed to be safe for 
+            IO operation by specifying `fileSafetyChecking` paramater to `true` (For NTFS file system).
+            </summary>
+            <param name="path">Target path.</param>
+            <param name="fileSafetyChecking">If sets to true then result of the operation can be used directly for IO operation (For NTFS file system). Safer but slower.</param>
+            <param name="searchOption">Specifies whether to search the current directory, or the current directory and all subdirectories.</param>
+            <param name="searchFileBySizeRange">Specifies size range option (B, KB, MB.. PB).</param>
+            <returns>An IEnumerable of FileInfo.</returns>
+            <exception cref="T:System.ArgumentNullException">`path` cannot be null.</exception>
+            <exception cref="T:System.IO.DirectoryNotFoundException">`path` doesn't exist.</exception>
+            <exception cref="T:System.ArgumentNullException">`searchFileBySizeRange` cannot be null.</exception>
+        </member>
+        <member name="M:System.IO.SafeTraversal.SafeTraversal.GetFiles(System.IO.DirectoryInfo,System.Boolean,System.IO.SearchOption,System.IO.SafeTraversal.SearchFileByDateOption)">
+            <summary>
+            Iterates files using search option and filters based on date (creation, last access, last modified).
+            Result of this operation is guaranteed to be safe for 
+            IO operation by specifying `fileSafetyChecking` paramater to `true` (For NTFS file system).
+            </summary>
+            <param name="path">Target path.</param>
+            <param name="fileSafetyChecking">If sets to true then result of the operation can be used directly for IO operation (For NTFS file system). Safer but slower.</param>
+            <param name="searchOption">Specifies whether to search the current directory, or the current directory and all subdirectories.</param>
+            <param name="searchFileByDate">Date option used for filtering.</param>
+            <returns>An IEnumerable of FileInfo.</returns>
+            <exception cref="T:System.ArgumentNullException">`path` cannot be null.</exception>
+            <exception cref="T:System.IO.DirectoryNotFoundException">`path` doesn't exist.</exception>
+            <exception cref="T:System.ArgumentNullException">`searchFileByDate` cannot be null.</exception>
+        </member>
+        <member name="M:System.IO.SafeTraversal.SafeTraversal.GetFiles(System.IO.DirectoryInfo,System.Boolean,System.IO.SearchOption,System.IO.SafeTraversal.SearchFileByDateRangeOption)">
+            <summary>
+            Iterates files using search option and filters based on date range (creation, last access, last modified).
+            Result of this operation is guaranteed to be safe for 
+            IO operation by specifying `fileSafetyChecking` paramater to `true` (For NTFS file system).
+            </summary>
+            <param name="path">Target path.</param>
+            <param name="fileSafetyChecking">If sets to true then result of the operation can be used directly for IO operation (For NTFS file system). Safer but slower.</param>
+            <param name="searchOption">Specifies whether to search the current directory, or the current directory and all subdirectories.</param>
+            <param name="searchFileByDateRange">Date range option used for filtering.</param>
+            <returns>An IEnumerable of FileInfo.</returns>
+            <exception cref="T:System.ArgumentNullException">`path` cannot be null.</exception>
+            <exception cref="T:System.IO.DirectoryNotFoundException">`path` doesn't exist.</exception>
+            <exception cref="T:System.ArgumentNullException">`searchFileByDateRange` cannot be null.</exception>
+        </member>
+        <member name="M:System.IO.SafeTraversal.SafeTraversal.GetFiles(System.IO.DirectoryInfo,System.Boolean,System.IO.SearchOption,System.IO.SafeTraversal.SearchFileByRegularExpressionOption)">
+            <summary>
+            Iterates files using search option and filters based on regular expression pattern.
+            Result of this operation is guaranteed to be safe for 
+            IO operation by specifying `fileSafetyChecking` paramater to `true` (For NTFS file system).
+            </summary>
+            <param name="path">Target path.</param>
+            <param name="fileSafetyChecking">If sets to true then result of the operation can be used directly for IO operation (For NTFS file system). Safer but slower.</param>
+            <param name="searchOption">Specifies whether to search the current directory, or the current directory and all subdirectories.</param>
+            <param name="searchFileByRegularExpressionPattern">Regular expression pattern.</param>
+            <returns>An IEnumerable of FileInfo.</returns>
+            <exception cref="T:System.ArgumentNullException">`path` cannot be null.</exception>
+            <exception cref="T:System.IO.DirectoryNotFoundException">`path` doesn't exist.</exception>
+            <exception cref="T:System.ArgumentNullException">`searchFileByRegularExpressionPattern` cannot be null.</exception>
+        </member>
+        <member name="M:System.IO.SafeTraversal.SafeTraversal.GetFiles(System.IO.DirectoryInfo,System.Boolean,System.IO.SearchOption,System.IO.SafeTraversal.SafeTraversalFileSearchOptions)">
+            <summary>
+            Iterates files using search option and filters based on composite option.
+            Result of this operation is guaranteed to be safe for 
+            IO operation by specifying `fileSafetyChecking` paramater to `true` (For NTFS file system).
+            </summary>
+            <param name="path">Target path.</param>
+            <param name="fileSafetyChecking">If sets to true then result of the operation can be used directly for IO operation (For NTFS file system). Safer but slower.</param>
+            <param name="searchOption">Specifies whether to search the current directory, or the current directory and all subdirectories.</param>
+            <param name="fileSearchOptions">Composite option that holds many options for filtering.</param>
+            <returns>An IEnumerable of FileInfo.</returns>
+            <exception cref="T:System.ArgumentNullException">`path` cannot be null.</exception>
+            <exception cref="T:System.IO.DirectoryNotFoundException">`path` doesn't exist.</exception>
+            <exception cref="T:System.ArgumentNullException">`fileSearchOptions` cannot be null.</exception>
+        </member>
+        <member name="M:System.IO.SafeTraversal.SafeTraversal.GetDirectories(System.IO.DirectoryInfo)">
+            <summary>
+            Iterate top level directories.
+            </summary>
+            <param name="path">Target path.</param>
+            <returns>IEnumerable of DirectoryInfo.</returns>
+            <exception cref="T:System.ArgumentNullException">`path` cannot be null.</exception>
+            <exception cref="T:System.IO.DirectoryNotFoundException">`path` doesn't exist.</exception>
+        </member>
+        <member name="M:System.IO.SafeTraversal.SafeTraversal.GetDirectories(System.IO.DirectoryInfo,System.IO.SearchOption)">
+            <summary>
+            Iterate directories using search option.
+            </summary>
+            <param name="path">Target path.</param>
+            <param name="searchOption">Specifies whether to search the current directory, or the current directory and all subdirectories.</param>
+            <returns>IEnumerable of DirectoryInfo.</returns>
+            <exception cref="T:System.ArgumentNullException">`path` cannot be null.</exception>
+            <exception cref="T:System.IO.DirectoryNotFoundException">`path` doesn't exist.</exception>
+        </member>
+        <member name="M:System.IO.SafeTraversal.SafeTraversal.GetDirectories(System.IO.DirectoryInfo,System.IO.SearchOption,System.Func{System.IO.DirectoryInfo,System.Boolean})">
+            <summary>
+            Iterate directories using search option and custom filter.
+            </summary>
+            <param name="path">Target path.</param>
+            <param name="searchOption">Specifies whether to search the current directory, or the current directory and all subdirectories.</param>
+            <param name="filter">Custom filter to filter files based on condition.</param>
+            <returns>IEnumerable of DirectoryInfo.</returns>
+            <exception cref="T:System.ArgumentNullException">`path` cannot be null.</exception>
+            <exception cref="T:System.IO.DirectoryNotFoundException">`path` doesn't exist.</exception>
+            <exception cref="T:System.ArgumentNullException">`filter` cannot be null.</exception> 
+        </member>
+        <member name="M:System.IO.SafeTraversal.SafeTraversal.GetDirectories(System.IO.DirectoryInfo,System.IO.SearchOption,System.IO.FileAttributes)">
+            <summary>
+            Iterate directories using search option and directory attributes.
+            </summary>
+            <param name="path">Target path.</param>
+            <param name="searchOption">Specifies whether to search the current directory, or the current directory and all subdirectories.</param>
+            <param name="attributes">Directory attributes.</param>
+            <returns>IEnumerable of DirectoryInfo.</returns>
+            <exception cref="T:System.ArgumentNullException">`path` cannot be null.</exception>
+            <exception cref="T:System.IO.DirectoryNotFoundException">`path` doesn't exist.</exception>
+        </member>
+        <member name="M:System.IO.SafeTraversal.SafeTraversal.GetDirectories(System.IO.DirectoryInfo,System.IO.SearchOption,System.IO.SafeTraversal.SearchDirectoryByDateOption)">
+            <summary>
+            Iterate directories using search option and filters based on date (creation, last access, last modified).
+            </summary>
+            <param name="path">Target path.</param>
+            <param name="searchOption">Specifies whether to search the current directory, or the current directory and all subdirectories.</param>
+            <param name="searchDirectoryByDateOption">Date option used for filtering.</param>
+            <returns>IEnumerable of DirectoryInfo.</returns>
+            <exception cref="T:System.ArgumentNullException">`path` cannot be null.</exception>
+            <exception cref="T:System.IO.DirectoryNotFoundException">`path` doesn't exist.</exception>
+            <exception cref="T:System.ArgumentNullException">`searchDirectoryByDateOption` cannot be null.</exception> 
+        </member>
+        <member name="M:System.IO.SafeTraversal.SafeTraversal.GetDirectories(System.IO.DirectoryInfo,System.IO.SearchOption,System.IO.SafeTraversal.SearchDirectoryByNameOption)">
+            <summary>
+            Iterate directories using search option and filters based on name.
+            </summary>
+            <param name="path">Target path.</param>
+            <param name="searchOption">Specifies whether to search the current directory, or the current directory and all subdirectories.</param>
+            <param name="searchDirectoryByName">Specified option to filter files based on the name.</param>
+            <returns>IEnumerable of DirectoryInfo.</returns>
+            <exception cref="T:System.ArgumentNullException">`path` cannot be null.</exception>
+            <exception cref="T:System.IO.DirectoryNotFoundException">`path` doesn't exist.</exception>
+            <exception cref="T:System.ArgumentNullException">`searchDirectoryByName` cannot be null.</exception> 
+        </member>
+        <member name="M:System.IO.SafeTraversal.SafeTraversal.GetDirectories(System.IO.DirectoryInfo,System.IO.SearchOption,System.IO.SafeTraversal.SearchDirectoryByRegularExpressionOption)">
+            <summary>
+            Iterate directories using search option and filters based on regular expression pattern.
+            </summary>
+            <param name="path">Target path.</param>
+            <param name="searchOption">Specifies whether to search the current directory, or the current directory and all subdirectories.</param>
+            <param name="searchDirectoryByRegularExpressionPattern">Regular expression pattern.</param>
+            <returns>IEnumerable of DirectoryInfo.</returns>
+            <exception cref="T:System.ArgumentNullException">`path` cannot be null.</exception>
+            <exception cref="T:System.IO.DirectoryNotFoundException">`path` doesn't exist.</exception>
+            <exception cref="T:System.ArgumentNullException">`searchDirectoryByRegularExpressionPattern` cannot be null.</exception> 
+        </member>
+        <member name="M:System.IO.SafeTraversal.SafeTraversal.GetDirectories(System.IO.DirectoryInfo,System.IO.SearchOption,System.IO.SafeTraversal.SafeTraversalDirectorySearchOptions)">
+            <summary>
+            Iterate directories using search option and filters based on composite option.
+            </summary>
+            <param name="path">Target path.</param>
+            <param name="searchOption">Specifies whether to search the current directory, or the current directory and all subdirectories.</param>
+            <param name="directorySearchOptions">Composite option that holds many options for filtering.</param>
+            <returns>IEnumerable of DirectoryInfo.</returns>
+            <exception cref="T:System.ArgumentNullException">`path` cannot be null.</exception>
+            <exception cref="T:System.IO.DirectoryNotFoundException">`path` doesn't exist.</exception>
+            <exception cref="T:System.ArgumentNullException">`searchDirectoryByRegularExpressionPattern` cannot be null.</exception>
+        </member>
+        <member name="M:System.IO.SafeTraversal.SafeTraversal.GetFiles(System.String)">
+            <summary>
+            Iterates files within top level directories.
+            </summary>
+            <param name="path">Target path.</param>
+            <returns>An IEnumerable of String.</returns>
+            <exception cref="T:System.ArgumentNullException">`path` cannot be null.</exception>
+            <exception cref="T:System.IO.DirectoryNotFoundException">`path` doesn't exist.</exception>
+        </member>
+        <member name="M:System.IO.SafeTraversal.SafeTraversal.GetFiles(System.String,System.IO.SearchOption)">
+            <summary>
+            Iterates files using search option.
+            </summary>
+            <param name="path">Target path.</param>
+            <param name="searchOption"> Specifies whether to search the current directory, or the current directory and all subdirectories.</param>
+            <returns>An IEnumerable of String.</returns>
+            <exception cref="T:System.ArgumentNullException">`path` cannot be null.</exception>
+            <exception cref="T:System.IO.DirectoryNotFoundException">`path` doesn't exist.</exception>
+        </member>
+        <member name="M:System.IO.SafeTraversal.SafeTraversal.GetFiles(System.String,System.IO.SearchOption,System.Func{System.IO.FileInfo,System.Boolean})">
+            <summary>
+            Iterates files using search option and custom filter.
+            </summary>
+            <param name="path">Target path.</param>
+            <param name="searchOption"> Specifies whether to search the current directory, or the current directory and all subdirectories.</param>
+            <param name="filter">Custom filter to filter files based on condition.</param>
+            <returns>An IEnumerable of String.</returns>
+            <exception cref="T:System.ArgumentNullException">`path` cannot be null.</exception>
+            <exception cref="T:System.IO.DirectoryNotFoundException">`path` doesn't exist.</exception>
+            <exception cref="T:System.ArgumentNullException">`filter` cannot be null.</exception>
+        </member>
+        <member name="M:System.IO.SafeTraversal.SafeTraversal.GetFiles(System.String,System.IO.SearchOption,System.IO.SafeTraversal.CommonSize)">
+            <summary>
+            Iteratess files using search option and filters based on the common size
+            </summary>
+            <param name="path">Target path.</param>
+            <param name="searchOption"> Specifies whether to search the current directory, or the current directory and all subdirectories.</param>
+            <param name="commonSize">Windows's explorer-like size filtering option.</param>
+            <returns>An IEnumerable of String.</returns>
+            <exception cref="T:System.ArgumentNullException">`path` cannot be null.</exception>
+            <exception cref="T:System.IO.DirectoryNotFoundException">`path` doesn't exist.</exception>
+        </member>
+        <member name="M:System.IO.SafeTraversal.SafeTraversal.GetFiles(System.String,System.IO.SearchOption,System.IO.SafeTraversal.SearchFileByNameOption)">
+            <summary>
+            Iterates files using search option and filters based on search file by name option.
+            </summary>
+            <param name="path">Target path.</param>
+            <param name="searchOption"> Specifies whether to search the current directory, or the current directory and all subdirectories.</param>
+            <param name="searchFileByName">Specified option to filter files based on the name.</param>
+            <returns>An IEnumerable of String.</returns>
+            <exception cref="T:System.ArgumentNullException">`path` cannot be null.</exception>
+            <exception cref="T:System.IO.DirectoryNotFoundException">`path` doesn't exist.</exception>
+            <exception cref="T:System.ArgumentNullException">`searchFileByName` cannot be null.</exception>
+        </member>
+        <member name="M:System.IO.SafeTraversal.SafeTraversal.GetFiles(System.String,System.IO.SearchOption,System.IO.SafeTraversal.SearchFileBySizeOption)">
+            <summary>
+            Iterates files using search option and filters based on size.
+            </summary>
+            <param name="path">Target path.</param>
+            <param name="searchOption">Specifies whether to search the current directory, or the current directory and all subdirectories.</param>
+            <param name="searchFileBySize">Specifies size option (B, KB, MB.. PB)</param>
+            <returns>An IEnumerable of String.</returns>
+            <exception cref="T:System.ArgumentNullException">`path` cannot be null.</exception>
+            <exception cref="T:System.IO.DirectoryNotFoundException">`path` doesn't exist.</exception>
+            <exception cref="T:System.ArgumentNullException">`searchFileBySize` cannot be null.</exception>
+        </member>
+        <member name="M:System.IO.SafeTraversal.SafeTraversal.GetFiles(System.String,System.IO.SearchOption,System.IO.SafeTraversal.SearchFileBySizeRangeOption)">
+            <summary>
+            Iterates files using search option and filters based on size range.
+            </summary>
+            <param name="path">Target path.</param>
+            <param name="searchOption">Specifies whether to search the current directory, or the current directory and all subdirectories.</param>
+            <param name="searchFileBySizeRange">Specifies size range option (B, KB, MB.. PB).</param>
+            <returns>An IEnumerable of String.</returns>
+            <exception cref="T:System.ArgumentNullException">`path` cannot be null.</exception>
+            <exception cref="T:System.IO.DirectoryNotFoundException">`path` doesn't exist.</exception>
+            <exception cref="T:System.ArgumentNullException">`searchFileBySizeRange` cannot be null.</exception>
+        </member>
+        <member name="M:System.IO.SafeTraversal.SafeTraversal.GetFiles(System.String,System.IO.SearchOption,System.IO.SafeTraversal.SearchFileByDateOption)">
+            <summary>
+            Iterates files using search option and filters based on date (creation, last access, last modified).
+            </summary>
+            <param name="path">Target path.</param>
+            <param name="searchOption">Specifies whether to search the current directory, or the current directory and all subdirectories.</param>
+            <param name="searchFileByDate">Date option used for filtering.</param>
+            <returns>An IEnumerable of String.</returns>
+            <exception cref="T:System.ArgumentNullException">`path` cannot be null.</exception>
+            <exception cref="T:System.IO.DirectoryNotFoundException">`path` doesn't exist.</exception>
+            <exception cref="T:System.ArgumentNullException">`searchFileByDate` cannot be null.</exception>
+        </member>
+        <member name="M:System.IO.SafeTraversal.SafeTraversal.GetFiles(System.String,System.IO.SearchOption,System.IO.SafeTraversal.SearchFileByDateRangeOption)">
+            <summary>
+            Iterates files using search option and filters based on date range (creation, last access, last modified).
+            </summary>
+            <param name="path">Target path.</param>
+            <param name="searchOption">Specifies whether to search the current directory, or the current directory and all subdirectories.</param>
+            <param name="searchFileByDateRange">Date range option used for filtering.</param>
+            <returns>An IEnumerable of String.</returns>
+            <exception cref="T:System.ArgumentNullException">`path` cannot be null.</exception>
+            <exception cref="T:System.IO.DirectoryNotFoundException">`path` doesn't exist.</exception>
+            <exception cref="T:System.ArgumentNullException">`searchFileByDateRange` cannot be null.</exception>
+        </member>
+        <member name="M:System.IO.SafeTraversal.SafeTraversal.GetFiles(System.String,System.IO.SearchOption,System.IO.SafeTraversal.SearchFileByRegularExpressionOption)">
+            <summary>
+            Iterates files using search option and filters based on regular expression pattern.
+            </summary>
+            <param name="path">Target path.</param>
+            <param name="searchOption">Specifies whether to search the current directory, or the current directory and all subdirectories.</param>
+            <param name="searchFileByRegularExpressionPattern">Regular expression pattern.</param>
+            <returns>An IEnumerable of String.</returns>
+            <exception cref="T:System.ArgumentNullException">`path` cannot be null.</exception>
+            <exception cref="T:System.IO.DirectoryNotFoundException">`path` doesn't exist.</exception>
+            <exception cref="T:System.ArgumentNullException">`searchFileByRegularExpressionPattern` cannot be null.</exception>
+        </member>
+        <member name="M:System.IO.SafeTraversal.SafeTraversal.GetFiles(System.String,System.IO.SearchOption,System.IO.SafeTraversal.SafeTraversalFileSearchOptions)">
+            <summary>
+            Iterates files using search option and filters based on composite option.
+            </summary>
+            <param name="path">Target path.</param>
+            <param name="searchOption">Specifies whether to search the current directory, or the current directory and all subdirectories.</param>
+            <param name="fileSearchOptions">Composite option that holds many options for filtering.</param>
+            <returns>An IEnumerable of String.</returns>
+            <exception cref="T:System.ArgumentNullException">`path` cannot be null.</exception>
+            <exception cref="T:System.IO.DirectoryNotFoundException">`path` doesn't exist.</exception>
+            <exception cref="T:System.ArgumentNullException">`fileSearchOptions` cannot be null.</exception>
+        </member>
+        <member name="M:System.IO.SafeTraversal.SafeTraversal.GetFiles(System.String,System.Boolean)">
+            <summary>
+            Iterates files within top level directories.
+            Result of this operation is guaranteed to be safe for 
+            IO operation by specifying `fileSafetyChecking` paramater to `true` (For NTFS file system).
+            </summary>
+            <param name="path">Target path.</param>
+            <param name="fileSafetyChecking">If sets to true then result of the operation can be used directly for IO operation (For NTFS file system). Safer but slower.</param>
+            <returns>An IEnumerable of String.</returns>
+            <exception cref="T:System.ArgumentNullException">`path` cannot be null.</exception>
+            <exception cref="T:System.IO.DirectoryNotFoundException">`path` doesn't exist.</exception>
+        </member>
+        <member name="M:System.IO.SafeTraversal.SafeTraversal.GetFiles(System.String,System.Boolean,System.IO.SearchOption)">
+            <summary>
+            Iterates files using search option.
+            Result of this operation is guaranteed to be safe for 
+            IO operation by specifying `fileSafetyChecking` paramater to `true` (For NTFS file system).
+            </summary>
+            <param name="path">Target path.</param>
+            <param name="fileSafetyChecking">If sets to true then result of the operation can be used directly for IO operation (For NTFS file system). Safer but slower.</param>
+            <param name="searchOption">Specifies whether to search the current directory, or the current directory and all subdirectories.</param>
+            <returns>An IEnumerable of String.</returns>
+            <exception cref="T:System.ArgumentNullException">`path` cannot be null.</exception>
+            <exception cref="T:System.IO.DirectoryNotFoundException">`path` doesn't exist.</exception>
+        </member>
+        <member name="M:System.IO.SafeTraversal.SafeTraversal.GetFiles(System.String,System.Boolean,System.IO.SearchOption,System.Func{System.IO.FileInfo,System.Boolean})">
+            <summary>
+            Iterates files using search option and custom filter.
+            Result of this operation is guaranteed to be safe for 
+            IO operation by specifying `fileSafetyChecking` paramater to `true` (For NTFS file system).
+            </summary>
+            <param name="path">Target path.</param>
+            <param name="fileSafetyChecking">If sets to true then result of the operation can be used directly for IO operation (For NTFS file system). Safer but slower.</param>
+            <param name="searchOption">Specifies whether to search the current directory, or the current directory and all subdirectories.</param>
+            <param name="filter">Custom filter to filter files based on condition.</param>
+            <returns>An IEnumerable of String.</returns>
+            <exception cref="T:System.ArgumentNullException">`path` cannot be null.</exception>
+            <exception cref="T:System.IO.DirectoryNotFoundException">`path` doesn't exist.</exception>
+            <exception cref="T:System.ArgumentNullException">`filter` cannot be null.</exception>
+        </member>
+        <member name="M:System.IO.SafeTraversal.SafeTraversal.GetFiles(System.String,System.Boolean,System.IO.SearchOption,System.IO.SafeTraversal.CommonSize)">
+            <summary>
+            Iteratess files using search option and filters based on the common size
+            Result of this operation is guaranteed to be safe for 
+            IO operation by specifying `fileSafetyChecking` paramater to `true` (For NTFS file system).
+            </summary>
+            <param name="path">Target path.</param>
+            <param name="fileSafetyChecking">If sets to true then result of the operation can be used directly for IO operation (For NTFS file system). Safer but slower.</param>
+            <param name="searchOption">Specifies whether to search the current directory, or the current directory and all subdirectories.</param>
+            <param name="commonSize">Windows's explorer-like size filtering option.</param>
+            <returns>An IEnumerable of String.</returns>
+            <exception cref="T:System.ArgumentNullException">`path` cannot be null.</exception>
+            <exception cref="T:System.IO.DirectoryNotFoundException">`path` doesn't exist.</exception>
+        </member>
+        <member name="M:System.IO.SafeTraversal.SafeTraversal.GetFiles(System.String,System.Boolean,System.IO.SearchOption,System.IO.SafeTraversal.SearchFileByNameOption)">
+            <summary>
+            Iterates files using search option and filters based on search file by name option.
+            Result of this operation is guaranteed to be safe for 
+            IO operation by specifying `fileSafetyChecking` paramater to `true` (For NTFS file system).
+            </summary>
+            <param name="path">Target path.</param>
+            <param name="fileSafetyChecking">If sets to true then result of the operation can be used directly for IO operation (For NTFS file system). Safer but slower.</param>
+            <param name="searchOption">Specifies whether to search the current directory, or the current directory and all subdirectories.</param>
+            <param name="searchFileByName">Specified option to filter files based on the name.</param>
+            <returns>An IEnumerable of String.</returns>
+            <exception cref="T:System.ArgumentNullException">`path` cannot be null.</exception>
+            <exception cref="T:System.IO.DirectoryNotFoundException">`path` doesn't exist.</exception>
+            <exception cref="T:System.ArgumentNullException">`searchFileByName` cannot be null.</exception>
+        </member>
+        <member name="M:System.IO.SafeTraversal.SafeTraversal.GetFiles(System.String,System.Boolean,System.IO.SearchOption,System.IO.SafeTraversal.SearchFileBySizeOption)">
+            <summary>
+            Iterates files using search option and filters based on size.
+            Result of this operation is guaranteed to be safe for 
+            IO operation by specifying `fileSafetyChecking` paramater to `true` (For NTFS file system).
+            </summary>
+            <param name="path">Target path.</param>
+            <param name="fileSafetyChecking">If sets to true then result of the operation can be used directly for IO operation (For NTFS file system). Safer but slower.</param>
+            <param name="searchOption">Specifies whether to search the current directory, or the current directory and all subdirectories.</param>
+            <param name="searchFileBySize">Specifies size option (B, KB, MB.. PB)</param>
+            <returns>An IEnumerable of String.</returns>
+            <exception cref="T:System.ArgumentNullException">`path` cannot be null.</exception>
+            <exception cref="T:System.IO.DirectoryNotFoundException">`path` doesn't exist.</exception>
+            <exception cref="T:System.ArgumentNullException">`searchFileBySize` cannot be null.</exception>
+        </member>
+        <member name="M:System.IO.SafeTraversal.SafeTraversal.GetFiles(System.String,System.Boolean,System.IO.SearchOption,System.IO.SafeTraversal.SearchFileBySizeRangeOption)">
+            <summary>
+            Iterates files using search option and filters based on size range.
+            Result of this operation is guaranteed to be safe for 
+            IO operation by specifying `fileSafetyChecking` paramater to `true` (For NTFS file system).
+            </summary>
+            <param name="path">Target path.</param>
+            <param name="fileSafetyChecking">If sets to true then result of the operation can be used directly for IO operation (For NTFS file system). Safer but slower.</param>
+            <param name="searchOption">Specifies whether to search the current directory, or the current directory and all subdirectories.</param>
+            <param name="searchFileBySizeRange">Specifies size range option (B, KB, MB.. PB).</param>
+            <returns>An IEnumerable of String.</returns>
+            <exception cref="T:System.ArgumentNullException">`path` cannot be null.</exception>
+            <exception cref="T:System.IO.DirectoryNotFoundException">`path` doesn't exist.</exception>
+            <exception cref="T:System.ArgumentNullException">`searchFileBySizeRange` cannot be null.</exception>
+        </member>
+        <member name="M:System.IO.SafeTraversal.SafeTraversal.GetFiles(System.String,System.Boolean,System.IO.SearchOption,System.IO.SafeTraversal.SearchFileByDateOption)">
+            <summary>
+            Iterates files using search option and filters based on date (creation, last access, last modified).
+            Result of this operation is guaranteed to be safe for 
+            IO operation by specifying `fileSafetyChecking` paramater to `true` (For NTFS file system).
+            </summary>
+            <param name="path">Target path.</param>
+            <param name="fileSafetyChecking">If sets to true then result of the operation can be used directly for IO operation (For NTFS file system). Safer but slower.</param>
+            <param name="searchOption">Specifies whether to search the current directory, or the current directory and all subdirectories.</param>
+            <param name="searchFileByDate">Date option used for filtering.</param>
+            <returns>An IEnumerable of String.</returns>
+            <exception cref="T:System.ArgumentNullException">`path` cannot be null.</exception>
+            <exception cref="T:System.IO.DirectoryNotFoundException">`path` doesn't exist.</exception>
+            <exception cref="T:System.ArgumentNullException">`searchFileByDate` cannot be null.</exception>
+        </member>
+        <member name="M:System.IO.SafeTraversal.SafeTraversal.GetFiles(System.String,System.Boolean,System.IO.SearchOption,System.IO.SafeTraversal.SearchFileByDateRangeOption)">
+            <summary>
+            Iterates files using search option and filters based on date range (creation, last access, last modified).
+            Result of this operation is guaranteed to be safe for 
+            IO operation by specifying `fileSafetyChecking` paramater to `true` (For NTFS file system).
+            </summary>
+            <param name="path">Target path.</param>
+            <param name="fileSafetyChecking">If sets to true then result of the operation can be used directly for IO operation (For NTFS file system). Safer but slower.</param>
+            <param name="searchOption">Specifies whether to search the current directory, or the current directory and all subdirectories.</param>
+            <param name="searchFileByDateRange">Date range option used for filtering.</param>
+            <returns>An IEnumerable of String.</returns>
+            <exception cref="T:System.ArgumentNullException">`path` cannot be null.</exception>
+            <exception cref="T:System.IO.DirectoryNotFoundException">`path` doesn't exist.</exception>
+            <exception cref="T:System.ArgumentNullException">`searchFileByDateRange` cannot be null.</exception>
+        </member>
+        <member name="M:System.IO.SafeTraversal.SafeTraversal.GetFiles(System.String,System.Boolean,System.IO.SearchOption,System.IO.SafeTraversal.SearchFileByRegularExpressionOption)">
+            <summary>
+            Iterates files using search option and filters based on regular expression pattern.
+            Result of this operation is guaranteed to be safe for 
+            IO operation by specifying `fileSafetyChecking` paramater to `true` (For NTFS file system).
+            </summary>
+            <param name="path">Target path.</param>
+            <param name="fileSafetyChecking">If sets to true then result of the operation can be used directly for IO operation (For NTFS file system). Safer but slower.</param>
+            <param name="searchOption">Specifies whether to search the current directory, or the current directory and all subdirectories.</param>
+            <param name="searchFileByRegularExpressionPattern">Regular expression pattern.</param>
+            <returns>An IEnumerable of String.</returns>
+            <exception cref="T:System.ArgumentNullException">`path` cannot be null.</exception>
+            <exception cref="T:System.IO.DirectoryNotFoundException">`path` doesn't exist.</exception>
+            <exception cref="T:System.ArgumentNullException">`searchFileByRegularExpressionPattern` cannot be null.</exception>
+        </member>
+        <member name="M:System.IO.SafeTraversal.SafeTraversal.GetFiles(System.String,System.Boolean,System.IO.SearchOption,System.IO.SafeTraversal.SafeTraversalFileSearchOptions)">
+            <summary>
+            Iterates files using search option and filters based on composite option.
+            Result of this operation is guaranteed to be safe for 
+            IO operation by specifying `fileSafetyChecking` paramater to `true` (For NTFS file system).
+            </summary>
+            <param name="path">Target path.</param>
+            <param name="fileSafetyChecking">If sets to true then result of the operation can be used directly for IO operation (For NTFS file system). Safer but slower.</param>
+            <param name="searchOption">Specifies whether to search the current directory, or the current directory and all subdirectories.</param>
+            <param name="fileSearchOptions">Composite option that holds many options for filtering.</param>
+            <returns>An IEnumerable of String.</returns>
+            <exception cref="T:System.ArgumentNullException">`path` cannot be null.</exception>
+            <exception cref="T:System.IO.DirectoryNotFoundException">`path` doesn't exist.</exception>
+            <exception cref="T:System.ArgumentNullException">`fileSearchOptions` cannot be null.</exception>
+        </member>
+        <member name="M:System.IO.SafeTraversal.SafeTraversal.GetDirectories(System.String)">
+            <summary>
+            Iterate top level directories.
+            </summary>
+            <param name="path">Target path.</param>
+            <returns>IEnumerable of String.</returns>
+            <exception cref="T:System.ArgumentNullException">`path` cannot be null.</exception>
+            <exception cref="T:System.IO.DirectoryNotFoundException">`path` doesn't exist.</exception>
+        </member>
+        <member name="M:System.IO.SafeTraversal.SafeTraversal.GetDirectories(System.String,System.IO.SearchOption)">
+            <summary>
+            Iterate directories using search option.
+            </summary>
+            <param name="path">Target path.</param>
+            <param name="searchOption">Specifies whether to search the current directory, or the current directory and all subdirectories.</param>
+            <returns>IEnumerable of String.</returns>
+            <exception cref="T:System.ArgumentNullException">`path` cannot be null.</exception>
+            <exception cref="T:System.IO.DirectoryNotFoundException">`path` doesn't exist.</exception>
+        </member>
+        <member name="M:System.IO.SafeTraversal.SafeTraversal.GetDirectories(System.String,System.IO.SearchOption,System.Func{System.IO.DirectoryInfo,System.Boolean})">
+            <summary>
+            Iterate directories using search option and custom filter.
+            </summary>
+            <param name="path">Target path.</param>
+            <param name="searchOption">Specifies whether to search the current directory, or the current directory and all subdirectories.</param>
+            <param name="filter">Custom filter to filter files based on condition.</param>
+            <returns>IEnumerable of String.</returns>
+            <exception cref="T:System.ArgumentNullException">`path` cannot be null.</exception>
+            <exception cref="T:System.IO.DirectoryNotFoundException">`path` doesn't exist.</exception>
+            <exception cref="T:System.ArgumentNullException">`filter` cannot be null.</exception> 
+        </member>
+        <member name="M:System.IO.SafeTraversal.SafeTraversal.GetDirectories(System.String,System.IO.SearchOption,System.IO.FileAttributes)">
+            <summary>
+            Iterate directories using search option and directory attributes.
+            </summary>
+            <param name="path">Target path.</param>
+            <param name="searchOption">Specifies whether to search the current directory, or the current directory and all subdirectories.</param>
+            <param name="attributes">Directory attributes.</param>
+            <returns>IEnumerable of String.</returns>
+            <exception cref="T:System.ArgumentNullException">`path` cannot be null.</exception>
+            <exception cref="T:System.IO.DirectoryNotFoundException">`path` doesn't exist.</exception>
+        </member>
+        <member name="M:System.IO.SafeTraversal.SafeTraversal.GetDirectories(System.String,System.IO.SearchOption,System.IO.SafeTraversal.SearchDirectoryByDateOption)">
+            <summary>
+            Iterate directories using search option and filters based on date (creation, last access, last modified).
+            </summary>
+            <param name="path">Target path.</param>
+            <param name="searchOption">Specifies whether to search the current directory, or the current directory and all subdirectories.</param>
+            <param name="searchDirectoryByDateOption">Date option used for filtering.</param>
+            <returns>IEnumerable of String.</returns>
+            <exception cref="T:System.ArgumentNullException">`path` cannot be null.</exception>
+            <exception cref="T:System.IO.DirectoryNotFoundException">`path` doesn't exist.</exception>
+            <exception cref="T:System.ArgumentNullException">`searchDirectoryByDateOption` cannot be null.</exception> 
+        </member>
+        <member name="M:System.IO.SafeTraversal.SafeTraversal.GetDirectories(System.String,System.IO.SearchOption,System.IO.SafeTraversal.SearchDirectoryByNameOption)">
+            <summary>
+            Iterate directories using search option and filters based on name.
+            </summary>
+            <param name="path">Target path.</param>
+            <param name="searchOption">Specifies whether to search the current directory, or the current directory and all subdirectories.</param>
+            <param name="searchDirectoryByName">Specified option to filter files based on the name.</param>
+            <returns>IEnumerable of String.</returns>
+            <exception cref="T:System.ArgumentNullException">`path` cannot be null.</exception>
+            <exception cref="T:System.IO.DirectoryNotFoundException">`path` doesn't exist.</exception>
+            <exception cref="T:System.ArgumentNullException">`searchDirectoryByName` cannot be null.</exception> 
+        </member>
+        <member name="M:System.IO.SafeTraversal.SafeTraversal.GetDirectories(System.String,System.IO.SearchOption,System.IO.SafeTraversal.SearchDirectoryByRegularExpressionOption)">
+            <summary>
+            Iterate directories using search option and filters based on regular expression pattern.
+            </summary>
+            <param name="path">Target path.</param>
+            <param name="searchOption">Specifies whether to search the current directory, or the current directory and all subdirectories.</param>
+            <param name="searchDirectoryByRegularExpressionPattern">Regular expression pattern.</param>
+            <returns>IEnumerable of String.</returns>
+            <exception cref="T:System.ArgumentNullException">`path` cannot be null.</exception>
+            <exception cref="T:System.IO.DirectoryNotFoundException">`path` doesn't exist.</exception>
+            <exception cref="T:System.ArgumentNullException">`searchDirectoryByRegularExpressionPattern` cannot be null.</exception> 
+        </member>
+        <member name="M:System.IO.SafeTraversal.SafeTraversal.GetDirectories(System.String,System.IO.SearchOption,System.IO.SafeTraversal.SafeTraversalDirectorySearchOptions)">
+            <summary>
+            Iterate directories using search option and filters based on composite option.
+            </summary>
+            <param name="path">Target path.</param>
+            <param name="searchOption">Specifies whether to search the current directory, or the current directory and all subdirectories.</param>
+            <param name="directorySearchOptions">Composite option that holds many options for filtering.</param>
+            <returns>IEnumerable of DirectoryInfo.</returns>
+            <exception cref="T:System.ArgumentNullException">`path` cannot be null.</exception>
+            <exception cref="T:System.IO.DirectoryNotFoundException">`path` doesn't exist.</exception>
+            <exception cref="T:System.ArgumentNullException">`searchDirectoryByRegularExpressionPattern` cannot be null.</exception>
+        </member>
+        <member name="E:System.IO.SafeTraversal.SafeTraversal.LogError">
+            <summary>
+            Event that holds information regarding error that occurs during operation.
+            </summary>
+        </member>
+        <member name="M:System.IO.SafeTraversal.SafeTraversal.OnLogError(System.IO.SafeTraversal.TraversalError)">
+            <summary>
+            Overridable method for error logging.
+            </summary>
+            <param name="traversalError">An instance of TraversalError class.</param>
+        </member>
+        <member name="M:System.IO.SafeTraversal.SafeTraversal.TraverseFiles(System.IO.DirectoryInfo)">
+            <summary>
+            Iterates files within top level directories.
+            </summary>
+            <param name="path">Target path.</param>
+            <returns>An IEnumerable of FileInfo.</returns>
+            <exception cref="T:System.ArgumentNullException">`path` cannot be null.</exception>
+            <exception cref="T:System.IO.DirectoryNotFoundException">`path` doesn't exist.</exception>
+        </member>
+        <member name="M:System.IO.SafeTraversal.SafeTraversal.TraverseFiles(System.IO.DirectoryInfo,System.IO.SearchOption)">
+            <summary>
+            Iterates files using search option.
+            </summary>
+            <param name="path">Target path.</param>
+            <param name="searchOption"> Specifies whether to search the current directory, or the current directory and all subdirectories.</param>
+            <returns>An IEnumerable of FileInfo.</returns>
+            <exception cref="T:System.ArgumentNullException">`path` cannot be null.</exception>
+            <exception cref="T:System.IO.DirectoryNotFoundException">`path` doesn't exist.</exception>
+        </member>
+        <member name="M:System.IO.SafeTraversal.SafeTraversal.TraverseFiles(System.IO.DirectoryInfo,System.IO.SearchOption,System.Func{System.IO.FileInfo,System.Boolean})">
+            <summary>
+            Iterates files using search option and custom filter.
+            </summary>
+            <param name="path">Target path.</param>
+            <param name="searchOption"> Specifies whether to search the current directory, or the current directory and all subdirectories.</param>
+            <param name="filter">Custom filter to filter files based on condition.</param>
+            <returns>An IEnumerable of FileInfo.</returns>
+            <exception cref="T:System.ArgumentNullException">`path` cannot be null.</exception>
+            <exception cref="T:System.IO.DirectoryNotFoundException">`path` doesn't exist.</exception>
+            <exception cref="T:System.ArgumentNullException">`filter` cannot be null.</exception>
+        </member>
+        <member name="M:System.IO.SafeTraversal.SafeTraversal.TraverseFiles(System.IO.DirectoryInfo,System.IO.SearchOption,System.IO.SafeTraversal.CommonSize)">
+            <summary>
+            Iteratess files using search option and filters based on the common size
+            </summary>
+            <param name="path">Target path.</param>
+            <param name="searchOption"> Specifies whether to search the current directory, or the current directory and all subdirectories.</param>
+            <param name="commonSize">Windows's explorer-like size filtering option.</param>
+            <returns>An IEnumerable of FileInfo.</returns>
+            <exception cref="T:System.ArgumentNullException">`path` cannot be null.</exception>
+            <exception cref="T:System.IO.DirectoryNotFoundException">`path` doesn't exist.</exception>
+        </member>
+        <member name="M:System.IO.SafeTraversal.SafeTraversal.TraverseFiles(System.IO.DirectoryInfo,System.IO.SearchOption,System.IO.SafeTraversal.SearchFileByNameOption)">
+            <summary>
+            Iterates files using search option and filters based on search file by name option.
+            </summary>
+            <param name="path">Target path.</param>
+            <param name="searchOption"> Specifies whether to search the current directory, or the current directory and all subdirectories.</param>
+            <param name="searchFileByName">Specified option to filter files based on the name.</param>
+            <returns>An IEnumerable of FileInfo.</returns>
+            <exception cref="T:System.ArgumentNullException">`path` cannot be null.</exception>
+            <exception cref="T:System.IO.DirectoryNotFoundException">`path` doesn't exist.</exception>
+            <exception cref="T:System.ArgumentNullException">`searchFileByName` cannot be null.</exception>
+        </member>
+        <member name="M:System.IO.SafeTraversal.SafeTraversal.TraverseFiles(System.IO.DirectoryInfo,System.IO.SearchOption,System.IO.SafeTraversal.SearchFileBySizeOption)">
+            <summary>
+            Iterates files using search option and filters based on size.
+            </summary>
+            <param name="path">Target path.</param>
+            <param name="searchOption">Specifies whether to search the current directory, or the current directory and all subdirectories.</param>
+            <param name="searchFileBySize">Specifies size option (B, KB, MB.. PB)</param>
+            <returns>An IEnumerable of FileInfo.</returns>
+            <exception cref="T:System.ArgumentNullException">`path` cannot be null.</exception>
+            <exception cref="T:System.IO.DirectoryNotFoundException">`path` doesn't exist.</exception>
+            <exception cref="T:System.ArgumentNullException">`searchFileBySize` cannot be null.</exception>
+        </member>
+        <member name="M:System.IO.SafeTraversal.SafeTraversal.TraverseFiles(System.IO.DirectoryInfo,System.IO.SearchOption,System.IO.SafeTraversal.SearchFileBySizeRangeOption)">
+            <summary>
+            Iterates files using search option and filters based on size range.
+            </summary>
+            <param name="path">Target path.</param>
+            <param name="searchOption">Specifies whether to search the current directory, or the current directory and all subdirectories.</param>
+            <param name="searchFileBySizeRange">Specifies size range option (B, KB, MB.. PB).</param>
+            <returns>An IEnumerable of FileInfo.</returns>
+            <exception cref="T:System.ArgumentNullException">`path` cannot be null.</exception>
+            <exception cref="T:System.IO.DirectoryNotFoundException">`path` doesn't exist.</exception>
+            <exception cref="T:System.ArgumentNullException">`searchFileBySizeRange` cannot be null.</exception>
+        </member>
+        <member name="M:System.IO.SafeTraversal.SafeTraversal.TraverseFiles(System.IO.DirectoryInfo,System.IO.SearchOption,System.IO.SafeTraversal.SearchFileByDateOption)">
+            <summary>
+            Iterates files using search option and filters based on date (creation, last access, last modified).
+            </summary>
+            <param name="path">Target path.</param>
+            <param name="searchOption">Specifies whether to search the current directory, or the current directory and all subdirectories.</param>
+            <param name="searchFileByDate">Date option used for filtering.</param>
+            <returns>An IEnumerable of FileInfo.</returns>
+            <exception cref="T:System.ArgumentNullException">`path` cannot be null.</exception>
+            <exception cref="T:System.IO.DirectoryNotFoundException">`path` doesn't exist.</exception>
+            <exception cref="T:System.ArgumentNullException">`searchFileByDate` cannot be null.</exception>
+        </member>
+        <member name="M:System.IO.SafeTraversal.SafeTraversal.TraverseFiles(System.IO.DirectoryInfo,System.IO.SearchOption,System.IO.SafeTraversal.SearchFileByDateRangeOption)">
+            <summary>
+            Iterates files using search option and filters based on date range (creation, last access, last modified).
+            </summary>
+            <param name="path">Target path.</param>
+            <param name="searchOption">Specifies whether to search the current directory, or the current directory and all subdirectories.</param>
+            <param name="searchFileByDateRange">Date range option used for filtering.</param>
+            <returns>An IEnumerable of FileInfo.</returns>
+            <exception cref="T:System.ArgumentNullException">`path` cannot be null.</exception>
+            <exception cref="T:System.IO.DirectoryNotFoundException">`path` doesn't exist.</exception>
+            <exception cref="T:System.ArgumentNullException">`searchFileByDateRange` cannot be null.</exception>
+        </member>
+        <member name="M:System.IO.SafeTraversal.SafeTraversal.TraverseFiles(System.IO.DirectoryInfo,System.IO.SearchOption,System.IO.SafeTraversal.SearchFileByRegularExpressionOption)">
+            <summary>
+            Iterates files using search option and filters based on regular expression pattern.
+            </summary>
+            <param name="path">Target path.</param>
+            <param name="searchOption">Specifies whether to search the current directory, or the current directory and all subdirectories.</param>
+            <param name="searchFileByRegularExpressionPattern">Regular expression pattern.</param>
+            <returns>An IEnumerable of FileInfo.</returns>
+            <exception cref="T:System.ArgumentNullException">`path` cannot be null.</exception>
+            <exception cref="T:System.IO.DirectoryNotFoundException">`path` doesn't exist.</exception>
+            <exception cref="T:System.ArgumentNullException">`searchFileByRegularExpressionPattern` cannot be null.</exception>
+        </member>
+        <member name="M:System.IO.SafeTraversal.SafeTraversal.TraverseFiles(System.IO.DirectoryInfo,System.IO.SearchOption,System.IO.SafeTraversal.SafeTraversalFileSearchOptions)">
+            <summary>
+            Iterates files using search option and filters based on composite option.
+            </summary>
+            <param name="path">Target path.</param>
+            <param name="searchOption">Specifies whether to search the current directory, or the current directory and all subdirectories.</param>
+            <param name="fileSearchOptions">Composite option that holds many options for filtering.</param>
+            <returns>An IEnumerable of FileInfo.</returns>
+            <exception cref="T:System.ArgumentNullException">`path` cannot be null.</exception>
+            <exception cref="T:System.IO.DirectoryNotFoundException">`path` doesn't exist.</exception>
+            <exception cref="T:System.ArgumentNullException">`fileSearchOptions` cannot be null.</exception>
+        </member>
+        <member name="M:System.IO.SafeTraversal.SafeTraversal.TraverseFiles(System.IO.DirectoryInfo,System.Boolean)">
+            <summary>
+            Iterates files within top level directories.
+            Result of this operation is guaranteed to be safe for 
+            IO operation by specifying `fileSafetyChecking` paramater to `true` (For NTFS file system).
+            </summary>
+            <param name="path">Target path.</param>
+            <param name="fileSafetyChecking">If sets to true then result of the operation can be used directly for IO operation (For NTFS file system). Safer but slower.</param>
+            <returns>An IEnumerable of FileInfo.</returns>
+            <exception cref="T:System.ArgumentNullException">`path` cannot be null.</exception>
+            <exception cref="T:System.IO.DirectoryNotFoundException">`path` doesn't exist.</exception>
+        </member>
+        <member name="M:System.IO.SafeTraversal.SafeTraversal.TraverseFiles(System.IO.DirectoryInfo,System.Boolean,System.IO.SearchOption)">
+            <summary>
+            Iterates files using search option.
+            Result of this operation is guaranteed to be safe for 
+            IO operation by specifying `fileSafetyChecking` paramater to `true` (For NTFS file system).
+            </summary>
+            <param name="path">Target path.</param>
+            <param name="fileSafetyChecking">If sets to true then result of the operation can be used directly for IO operation (For NTFS file system). Safer but slower.</param>
+            <param name="searchOption">Specifies whether to search the current directory, or the current directory and all subdirectories.</param>
+            <returns>An IEnumerable of FileInfo.</returns>
+            <exception cref="T:System.ArgumentNullException">`path` cannot be null.</exception>
+            <exception cref="T:System.IO.DirectoryNotFoundException">`path` doesn't exist.</exception>
+        </member>
+        <member name="M:System.IO.SafeTraversal.SafeTraversal.TraverseFiles(System.IO.DirectoryInfo,System.Boolean,System.IO.SearchOption,System.Func{System.IO.FileInfo,System.Boolean})">
+            <summary>
+            Iterates files using search option and custom filter.
+            Result of this operation is guaranteed to be safe for 
+            IO operation by specifying `fileSafetyChecking` paramater to `true` (For NTFS file system).
+            </summary>
+            <param name="path">Target path.</param>
+            <param name="fileSafetyChecking">If sets to true then result of the operation can be used directly for IO operation (For NTFS file system). Safer but slower.</param>
+            <param name="searchOption">Specifies whether to search the current directory, or the current directory and all subdirectories.</param>
+            <param name="filter">Custom filter to filter files based on condition.</param>
+            <returns>An IEnumerable of FileInfo.</returns>
+            <exception cref="T:System.ArgumentNullException">`path` cannot be null.</exception>
+            <exception cref="T:System.IO.DirectoryNotFoundException">`path` doesn't exist.</exception>
+            <exception cref="T:System.ArgumentNullException">`filter` cannot be null.</exception>
+        </member>
+        <member name="M:System.IO.SafeTraversal.SafeTraversal.TraverseFiles(System.IO.DirectoryInfo,System.Boolean,System.IO.SearchOption,System.IO.SafeTraversal.CommonSize)">
+            <summary>
+            Iteratess files using search option and filters based on the common size
+            Result of this operation is guaranteed to be safe for 
+            IO operation by specifying `fileSafetyChecking` paramater to `true` (For NTFS file system).
+            </summary>
+            <param name="path">Target path.</param>
+            <param name="fileSafetyChecking">If sets to true then result of the operation can be used directly for IO operation (For NTFS file system). Safer but slower.</param>
+            <param name="searchOption">Specifies whether to search the current directory, or the current directory and all subdirectories.</param>
+            <param name="commonSize">Windows's explorer-like size filtering option.</param>
+            <returns>An IEnumerable of FileInfo.</returns>
+            <exception cref="T:System.ArgumentNullException">`path` cannot be null.</exception>
+            <exception cref="T:System.IO.DirectoryNotFoundException">`path` doesn't exist.</exception>
+        </member>
+        <member name="M:System.IO.SafeTraversal.SafeTraversal.TraverseFiles(System.IO.DirectoryInfo,System.Boolean,System.IO.SearchOption,System.IO.SafeTraversal.SearchFileByNameOption)">
+            <summary>
+            Iterates files using search option and filters based on search file by name option.
+            Result of this operation is guaranteed to be safe for 
+            IO operation by specifying `fileSafetyChecking` paramater to `true` (For NTFS file system).
+            </summary>
+            <param name="path">Target path.</param>
+            <param name="fileSafetyChecking">If sets to true then result of the operation can be used directly for IO operation (For NTFS file system). Safer but slower.</param>
+            <param name="searchOption">Specifies whether to search the current directory, or the current directory and all subdirectories.</param>
+            <param name="searchFileByName">Specified option to filter files based on the name.</param>
+            <returns>An IEnumerable of FileInfo.</returns>
+            <exception cref="T:System.ArgumentNullException">`path` cannot be null.</exception>
+            <exception cref="T:System.IO.DirectoryNotFoundException">`path` doesn't exist.</exception>
+            <exception cref="T:System.ArgumentNullException">`searchFileByName` cannot be null.</exception>
+        </member>
+        <member name="M:System.IO.SafeTraversal.SafeTraversal.TraverseFiles(System.IO.DirectoryInfo,System.Boolean,System.IO.SearchOption,System.IO.SafeTraversal.SearchFileBySizeOption)">
+            <summary>
+            Iterates files using search option and filters based on size.
+            Result of this operation is guaranteed to be safe for 
+            IO operation by specifying `fileSafetyChecking` paramater to `true` (For NTFS file system).
+            </summary>
+            <param name="path">Target path.</param>
+            <param name="fileSafetyChecking">If sets to true then result of the operation can be used directly for IO operation (For NTFS file system). Safer but slower.</param>
+            <param name="searchOption">Specifies whether to search the current directory, or the current directory and all subdirectories.</param>
+            <param name="searchFileBySize">Specifies size option (B, KB, MB.. PB)</param>
+            <returns>An IEnumerable of FileInfo.</returns>
+            <exception cref="T:System.ArgumentNullException">`path` cannot be null.</exception>
+            <exception cref="T:System.IO.DirectoryNotFoundException">`path` doesn't exist.</exception>
+            <exception cref="T:System.ArgumentNullException">`searchFileBySize` cannot be null.</exception>
+        </member>
+        <member name="M:System.IO.SafeTraversal.SafeTraversal.TraverseFiles(System.IO.DirectoryInfo,System.Boolean,System.IO.SearchOption,System.IO.SafeTraversal.SearchFileBySizeRangeOption)">
+            <summary>
+            Iterates files using search option and filters based on size range.
+            Result of this operation is guaranteed to be safe for 
+            IO operation by specifying `fileSafetyChecking` paramater to `true` (For NTFS file system).
+            </summary>
+            <param name="path">Target path.</param>
+            <param name="fileSafetyChecking">If sets to true then result of the operation can be used directly for IO operation (For NTFS file system). Safer but slower.</param>
+            <param name="searchOption">Specifies whether to search the current directory, or the current directory and all subdirectories.</param>
+            <param name="searchFileBySizeRange">Specifies size range option (B, KB, MB.. PB).</param>
+            <returns>An IEnumerable of FileInfo.</returns>
+            <exception cref="T:System.ArgumentNullException">`path` cannot be null.</exception>
+            <exception cref="T:System.IO.DirectoryNotFoundException">`path` doesn't exist.</exception>
+            <exception cref="T:System.ArgumentNullException">`searchFileBySizeRange` cannot be null.</exception>
+        </member>
+        <member name="M:System.IO.SafeTraversal.SafeTraversal.TraverseFiles(System.IO.DirectoryInfo,System.Boolean,System.IO.SearchOption,System.IO.SafeTraversal.SearchFileByDateOption)">
+            <summary>
+            Iterates files using search option and filters based on date (creation, last access, last modified).
+            Result of this operation is guaranteed to be safe for 
+            IO operation by specifying `fileSafetyChecking` paramater to `true` (For NTFS file system).
+            </summary>
+            <param name="path">Target path.</param>
+            <param name="fileSafetyChecking">If sets to true then result of the operation can be used directly for IO operation (For NTFS file system). Safer but slower.</param>
+            <param name="searchOption">Specifies whether to search the current directory, or the current directory and all subdirectories.</param>
+            <param name="searchFileByDate">Date option used for filtering.</param>
+            <returns>An IEnumerable of FileInfo.</returns>
+            <exception cref="T:System.ArgumentNullException">`path` cannot be null.</exception>
+            <exception cref="T:System.IO.DirectoryNotFoundException">`path` doesn't exist.</exception>
+            <exception cref="T:System.ArgumentNullException">`searchFileByDate` cannot be null.</exception>
+        </member>
+        <member name="M:System.IO.SafeTraversal.SafeTraversal.TraverseFiles(System.IO.DirectoryInfo,System.Boolean,System.IO.SearchOption,System.IO.SafeTraversal.SearchFileByDateRangeOption)">
+            <summary>
+            Iterates files using search option and filters based on date range (creation, last access, last modified).
+            Result of this operation is guaranteed to be safe for 
+            IO operation by specifying `fileSafetyChecking` paramater to `true` (For NTFS file system).
+            </summary>
+            <param name="path">Target path.</param>
+            <param name="fileSafetyChecking">If sets to true then result of the operation can be used directly for IO operation (For NTFS file system). Safer but slower.</param>
+            <param name="searchOption">Specifies whether to search the current directory, or the current directory and all subdirectories.</param>
+            <param name="searchFileByDateRange">Date range option used for filtering.</param>
+            <returns>An IEnumerable of FileInfo.</returns>
+            <exception cref="T:System.ArgumentNullException">`path` cannot be null.</exception>
+            <exception cref="T:System.IO.DirectoryNotFoundException">`path` doesn't exist.</exception>
+            <exception cref="T:System.ArgumentNullException">`searchFileByDateRange` cannot be null.</exception>
+        </member>
+        <member name="M:System.IO.SafeTraversal.SafeTraversal.TraverseFiles(System.IO.DirectoryInfo,System.Boolean,System.IO.SearchOption,System.IO.SafeTraversal.SearchFileByRegularExpressionOption)">
+            <summary>
+            Iterates files using search option and filters based on regular expression pattern.
+            Result of this operation is guaranteed to be safe for 
+            IO operation by specifying `fileSafetyChecking` paramater to `true` (For NTFS file system).
+            </summary>
+            <param name="path">Target path.</param>
+            <param name="fileSafetyChecking">If sets to true then result of the operation can be used directly for IO operation (For NTFS file system). Safer but slower.</param>
+            <param name="searchOption">Specifies whether to search the current directory, or the current directory and all subdirectories.</param>
+            <param name="searchFileByRegularExpressionPattern">Regular expression pattern.</param>
+            <returns>An IEnumerable of FileInfo.</returns>
+            <exception cref="T:System.ArgumentNullException">`path` cannot be null.</exception>
+            <exception cref="T:System.IO.DirectoryNotFoundException">`path` doesn't exist.</exception>
+            <exception cref="T:System.ArgumentNullException">`searchFileByRegularExpressionPattern` cannot be null.</exception>
+        </member>
+        <member name="M:System.IO.SafeTraversal.SafeTraversal.TraverseFiles(System.IO.DirectoryInfo,System.Boolean,System.IO.SearchOption,System.IO.SafeTraversal.SafeTraversalFileSearchOptions)">
+            <summary>
+            Iterates files using search option and filters based on composite option.
+            Result of this operation is guaranteed to be safe for 
+            IO operation by specifying `fileSafetyChecking` paramater to `true` (For NTFS file system).
+            </summary>
+            <param name="path">Target path.</param>
+            <param name="fileSafetyChecking">If sets to true then result of the operation can be used directly for IO operation (For NTFS file system). Safer but slower.</param>
+            <param name="searchOption">Specifies whether to search the current directory, or the current directory and all subdirectories.</param>
+            <param name="fileSearchOptions">Composite option that holds many options for filtering.</param>
+            <returns>An IEnumerable of FileInfo.</returns>
+            <exception cref="T:System.ArgumentNullException">`path` cannot be null.</exception>
+            <exception cref="T:System.IO.DirectoryNotFoundException">`path` doesn't exist.</exception>
+            <exception cref="T:System.ArgumentNullException">`fileSearchOptions` cannot be null.</exception>
+        </member>
+        <member name="M:System.IO.SafeTraversal.SafeTraversal.TraverseDirectories(System.IO.DirectoryInfo)">
+            <summary>
+            Iterate top level directories.
+            </summary>
+            <param name="path">Target path.</param>
+            <returns>IEnumerable of DirectoryInfo.</returns>
+            <exception cref="T:System.ArgumentNullException">`path` cannot be null.</exception>
+            <exception cref="T:System.IO.DirectoryNotFoundException">`path` doesn't exist.</exception>
+        </member>
+        <member name="M:System.IO.SafeTraversal.SafeTraversal.TraverseDirectories(System.IO.DirectoryInfo,System.IO.SearchOption)">
+            <summary>
+            Iterate directories using search option.
+            </summary>
+            <param name="path">Target path.</param>
+            <param name="searchOption">Specifies whether to search the current directory, or the current directory and all subdirectories.</param>
+            <returns>IEnumerable of DirectoryInfo.</returns>
+            <exception cref="T:System.ArgumentNullException">`path` cannot be null.</exception>
+            <exception cref="T:System.IO.DirectoryNotFoundException">`path` doesn't exist.</exception>
+        </member>
+        <member name="M:System.IO.SafeTraversal.SafeTraversal.TraverseDirectories(System.IO.DirectoryInfo,System.IO.SearchOption,System.Func{System.IO.DirectoryInfo,System.Boolean})">
+            <summary>
+            Iterate directories using search option and custom filter.
+            </summary>
+            <param name="path">Target path.</param>
+            <param name="searchOption">Specifies whether to search the current directory, or the current directory and all subdirectories.</param>
+            <param name="filter">Custom filter to filter files based on condition.</param>
+            <returns>IEnumerable of DirectoryInfo.</returns>
+            <exception cref="T:System.ArgumentNullException">`path` cannot be null.</exception>
+            <exception cref="T:System.IO.DirectoryNotFoundException">`path` doesn't exist.</exception>
+            <exception cref="T:System.ArgumentNullException">`filter` cannot be null.</exception> 
+        </member>
+        <member name="M:System.IO.SafeTraversal.SafeTraversal.TraverseDirectories(System.IO.DirectoryInfo,System.IO.SearchOption,System.IO.FileAttributes)">
+            <summary>
+            Iterate directories using search option and directory attributes.
+            </summary>
+            <param name="path">Target path.</param>
+            <param name="searchOption">Specifies whether to search the current directory, or the current directory and all subdirectories.</param>
+            <param name="attributes">Directory attributes.</param>
+            <returns>IEnumerable of DirectoryInfo.</returns>
+            <exception cref="T:System.ArgumentNullException">`path` cannot be null.</exception>
+            <exception cref="T:System.IO.DirectoryNotFoundException">`path` doesn't exist.</exception>
+        </member>
+        <member name="M:System.IO.SafeTraversal.SafeTraversal.TraverseDirectories(System.IO.DirectoryInfo,System.IO.SearchOption,System.IO.SafeTraversal.SearchDirectoryByDateOption)">
+            <summary>
+            Iterate directories using search option and filters based on date (creation, last access, last modified).
+            </summary>
+            <param name="path">Target path.</param>
+            <param name="searchOption">Specifies whether to search the current directory, or the current directory and all subdirectories.</param>
+            <param name="searchDirectoryByDateOption">Date option used for filtering.</param>
+            <returns>IEnumerable of DirectoryInfo.</returns>
+            <exception cref="T:System.ArgumentNullException">`path` cannot be null.</exception>
+            <exception cref="T:System.IO.DirectoryNotFoundException">`path` doesn't exist.</exception>
+            <exception cref="T:System.ArgumentNullException">`searchDirectoryByDateOption` cannot be null.</exception> 
+        </member>
+        <member name="M:System.IO.SafeTraversal.SafeTraversal.TraverseDirectories(System.IO.DirectoryInfo,System.IO.SearchOption,System.IO.SafeTraversal.SearchDirectoryByNameOption)">
+            <summary>
+            Iterate directories using search option and filters based on name.
+            </summary>
+            <param name="path">Target path.</param>
+            <param name="searchOption">Specifies whether to search the current directory, or the current directory and all subdirectories.</param>
+            <param name="searchDirectoryByName">Specified option to filter files based on the name.</param>
+            <returns>IEnumerable of DirectoryInfo.</returns>
+            <exception cref="T:System.ArgumentNullException">`path` cannot be null.</exception>
+            <exception cref="T:System.IO.DirectoryNotFoundException">`path` doesn't exist.</exception>
+            <exception cref="T:System.ArgumentNullException">`searchDirectoryByName` cannot be null.</exception> 
+        </member>
+        <member name="M:System.IO.SafeTraversal.SafeTraversal.TraverseDirectories(System.IO.DirectoryInfo,System.IO.SearchOption,System.IO.SafeTraversal.SearchDirectoryByRegularExpressionOption)">
+            <summary>
+            Iterate directories using search option and filters based on regular expression pattern.
+            </summary>
+            <param name="path">Target path.</param>
+            <param name="searchOption">Specifies whether to search the current directory, or the current directory and all subdirectories.</param>
+            <param name="searchDirectoryByRegularExpressionPattern">Regular expression pattern.</param>
+            <returns>IEnumerable of DirectoryInfo.</returns>
+            <exception cref="T:System.ArgumentNullException">`path` cannot be null.</exception>
+            <exception cref="T:System.IO.DirectoryNotFoundException">`path` doesn't exist.</exception>
+            <exception cref="T:System.ArgumentNullException">`searchDirectoryByRegularExpressionPattern` cannot be null.</exception> 
+        </member>
+        <member name="M:System.IO.SafeTraversal.SafeTraversal.TraverseDirectories(System.IO.DirectoryInfo,System.IO.SearchOption,System.IO.SafeTraversal.SafeTraversalDirectorySearchOptions)">
+            <summary>
+            Iterate directories using search option and filters based on composite option.
+            </summary>
+            <param name="path">Target path.</param>
+            <param name="searchOption">Specifies whether to search the current directory, or the current directory and all subdirectories.</param>
+            <param name="directorySearchOptions">Composite option that holds many options for filtering.</param>
+            <returns>IEnumerable of DirectoryInfo.</returns>
+            <exception cref="T:System.ArgumentNullException">`path` cannot be null.</exception>
+            <exception cref="T:System.IO.DirectoryNotFoundException">`path` doesn't exist.</exception>
+            <exception cref="T:System.ArgumentNullException">`searchDirectoryByRegularExpressionPattern` cannot be null.</exception>
+        </member>
+        <member name="M:System.IO.SafeTraversal.SafeTraversal.TraverseFiles(System.String)">
+            <summary>
+            Iterates files within top level directories.
+            </summary>
+            <param name="path">Target path.</param>
+            <returns>An IEnumerable of String.</returns>
+            <exception cref="T:System.ArgumentNullException">`path` cannot be null.</exception>
+            <exception cref="T:System.IO.DirectoryNotFoundException">`path` doesn't exist.</exception>
+        </member>
+        <member name="M:System.IO.SafeTraversal.SafeTraversal.TraverseFiles(System.String,System.IO.SearchOption)">
+            <summary>
+            Iterates files using search option.
+            </summary>
+            <param name="path">Target path.</param>
+            <param name="searchOption"> Specifies whether to search the current directory, or the current directory and all subdirectories.</param>
+            <returns>An IEnumerable of String.</returns>
+            <exception cref="T:System.ArgumentNullException">`path` cannot be null.</exception>
+            <exception cref="T:System.IO.DirectoryNotFoundException">`path` doesn't exist.</exception>
+        </member>
+        <member name="M:System.IO.SafeTraversal.SafeTraversal.TraverseFiles(System.String,System.IO.SearchOption,System.Func{System.IO.FileInfo,System.Boolean})">
+            <summary>
+            Iterates files using search option and custom filter.
+            </summary>
+            <param name="path">Target path.</param>
+            <param name="searchOption"> Specifies whether to search the current directory, or the current directory and all subdirectories.</param>
+            <param name="filter">Custom filter to filter files based on condition.</param>
+            <returns>An IEnumerable of String.</returns>
+            <exception cref="T:System.ArgumentNullException">`path` cannot be null.</exception>
+            <exception cref="T:System.IO.DirectoryNotFoundException">`path` doesn't exist.</exception>
+            <exception cref="T:System.ArgumentNullException">`filter` cannot be null.</exception>
+        </member>
+        <member name="M:System.IO.SafeTraversal.SafeTraversal.TraverseFiles(System.String,System.IO.SearchOption,System.IO.SafeTraversal.CommonSize)">
+            <summary>
+            Iteratess files using search option and filters based on the common size
+            </summary>
+            <param name="path">Target path.</param>
+            <param name="searchOption"> Specifies whether to search the current directory, or the current directory and all subdirectories.</param>
+            <param name="commonSize">Windows's explorer-like size filtering option.</param>
+            <returns>An IEnumerable of String.</returns>
+            <exception cref="T:System.ArgumentNullException">`path` cannot be null.</exception>
+            <exception cref="T:System.IO.DirectoryNotFoundException">`path` doesn't exist.</exception>
+        </member>
+        <member name="M:System.IO.SafeTraversal.SafeTraversal.TraverseFiles(System.String,System.IO.SearchOption,System.IO.SafeTraversal.SearchFileByNameOption)">
+            <summary>
+            Iterates files using search option and filters based on search file by name option.
+            </summary>
+            <param name="path">Target path.</param>
+            <param name="searchOption"> Specifies whether to search the current directory, or the current directory and all subdirectories.</param>
+            <param name="searchFileByName">Specified option to filter files based on the name.</param>
+            <returns>An IEnumerable of String.</returns>
+            <exception cref="T:System.ArgumentNullException">`path` cannot be null.</exception>
+            <exception cref="T:System.IO.DirectoryNotFoundException">`path` doesn't exist.</exception>
+            <exception cref="T:System.ArgumentNullException">`searchFileByName` cannot be null.</exception>
+        </member>
+        <member name="M:System.IO.SafeTraversal.SafeTraversal.TraverseFiles(System.String,System.IO.SearchOption,System.IO.SafeTraversal.SearchFileBySizeOption)">
+            <summary>
+            Iterates files using search option and filters based on size.
+            </summary>
+            <param name="path">Target path.</param>
+            <param name="searchOption">Specifies whether to search the current directory, or the current directory and all subdirectories.</param>
+            <param name="searchFileBySize">Specifies size option (B, KB, MB.. PB)</param>
+            <returns>An IEnumerable of String.</returns>
+            <exception cref="T:System.ArgumentNullException">`path` cannot be null.</exception>
+            <exception cref="T:System.IO.DirectoryNotFoundException">`path` doesn't exist.</exception>
+            <exception cref="T:System.ArgumentNullException">`searchFileBySize` cannot be null.</exception>
+        </member>
+        <member name="M:System.IO.SafeTraversal.SafeTraversal.TraverseFiles(System.String,System.IO.SearchOption,System.IO.SafeTraversal.SearchFileBySizeRangeOption)">
+            <summary>
+            Iterates files using search option and filters based on size range.
+            </summary>
+            <param name="path">Target path.</param>
+            <param name="searchOption">Specifies whether to search the current directory, or the current directory and all subdirectories.</param>
+            <param name="searchFileBySizeRange">Specifies size range option (B, KB, MB.. PB).</param>
+            <returns>An IEnumerable of String.</returns>
+            <exception cref="T:System.ArgumentNullException">`path` cannot be null.</exception>
+            <exception cref="T:System.IO.DirectoryNotFoundException">`path` doesn't exist.</exception>
+            <exception cref="T:System.ArgumentNullException">`searchFileBySizeRange` cannot be null.</exception>
+        </member>
+        <member name="M:System.IO.SafeTraversal.SafeTraversal.TraverseFiles(System.String,System.IO.SearchOption,System.IO.SafeTraversal.SearchFileByDateOption)">
+            <summary>
+            Iterates files using search option and filters based on date (creation, last access, last modified).
+            </summary>
+            <param name="path">Target path.</param>
+            <param name="searchOption">Specifies whether to search the current directory, or the current directory and all subdirectories.</param>
+            <param name="searchFileByDate">Date option used for filtering.</param>
+            <returns>An IEnumerable of String.</returns>
+            <exception cref="T:System.ArgumentNullException">`path` cannot be null.</exception>
+            <exception cref="T:System.IO.DirectoryNotFoundException">`path` doesn't exist.</exception>
+            <exception cref="T:System.ArgumentNullException">`searchFileByDate` cannot be null.</exception>
+        </member>
+        <member name="M:System.IO.SafeTraversal.SafeTraversal.TraverseFiles(System.String,System.IO.SearchOption,System.IO.SafeTraversal.SearchFileByDateRangeOption)">
+            <summary>
+            Iterates files using search option and filters based on date range (creation, last access, last modified).
+            </summary>
+            <param name="path">Target path.</param>
+            <param name="searchOption">Specifies whether to search the current directory, or the current directory and all subdirectories.</param>
+            <param name="searchFileByDateRange">Date range option used for filtering.</param>
+            <returns>An IEnumerable of String.</returns>
+            <exception cref="T:System.ArgumentNullException">`path` cannot be null.</exception>
+            <exception cref="T:System.IO.DirectoryNotFoundException">`path` doesn't exist.</exception>
+            <exception cref="T:System.ArgumentNullException">`searchFileByDateRange` cannot be null.</exception>
+        </member>
+        <member name="M:System.IO.SafeTraversal.SafeTraversal.TraverseFiles(System.String,System.IO.SearchOption,System.IO.SafeTraversal.SearchFileByRegularExpressionOption)">
+            <summary>
+            Iterates files using search option and filters based on regular expression pattern.
+            </summary>
+            <param name="path">Target path.</param>
+            <param name="searchOption">Specifies whether to search the current directory, or the current directory and all subdirectories.</param>
+            <param name="searchFileByRegularExpressionPattern">Regular expression pattern.</param>
+            <returns>An IEnumerable of String.</returns>
+            <exception cref="T:System.ArgumentNullException">`path` cannot be null.</exception>
+            <exception cref="T:System.IO.DirectoryNotFoundException">`path` doesn't exist.</exception>
+            <exception cref="T:System.ArgumentNullException">`searchFileByRegularExpressionPattern` cannot be null.</exception>
+        </member>
+        <member name="M:System.IO.SafeTraversal.SafeTraversal.TraverseFiles(System.String,System.IO.SearchOption,System.IO.SafeTraversal.SafeTraversalFileSearchOptions)">
+            <summary>
+            Iterates files using search option and filters based on composite option.
+            </summary>
+            <param name="path">Target path.</param>
+            <param name="searchOption">Specifies whether to search the current directory, or the current directory and all subdirectories.</param>
+            <param name="fileSearchOptions">Composite option that holds many options for filtering.</param>
+            <returns>An IEnumerable of String.</returns>
+            <exception cref="T:System.ArgumentNullException">`path` cannot be null.</exception>
+            <exception cref="T:System.IO.DirectoryNotFoundException">`path` doesn't exist.</exception>
+            <exception cref="T:System.ArgumentNullException">`fileSearchOptions` cannot be null.</exception>
+        </member>
+        <member name="M:System.IO.SafeTraversal.SafeTraversal.TraverseFiles(System.String,System.Boolean)">
+            <summary>
+            Iterates files within top level directories.
+            Result of this operation is guaranteed to be safe for 
+            IO operation by specifying `fileSafetyChecking` paramater to `true` (For NTFS file system).
+            </summary>
+            <param name="path">Target path.</param>
+            <param name="fileSafetyChecking">If sets to true then result of the operation can be used directly for IO operation (For NTFS file system). Safer but slower.</param>
+            <returns>An IEnumerable of String.</returns>
+            <exception cref="T:System.ArgumentNullException">`path` cannot be null.</exception>
+            <exception cref="T:System.IO.DirectoryNotFoundException">`path` doesn't exist.</exception>
+        </member>
+        <member name="M:System.IO.SafeTraversal.SafeTraversal.TraverseFiles(System.String,System.Boolean,System.IO.SearchOption)">
+            <summary>
+            Iterates files using search option.
+            Result of this operation is guaranteed to be safe for 
+            IO operation by specifying `fileSafetyChecking` paramater to `true` (For NTFS file system).
+            </summary>
+            <param name="path">Target path.</param>
+            <param name="fileSafetyChecking">If sets to true then result of the operation can be used directly for IO operation (For NTFS file system). Safer but slower.</param>
+            <param name="searchOption">Specifies whether to search the current directory, or the current directory and all subdirectories.</param>
+            <returns>An IEnumerable of String.</returns>
+            <exception cref="T:System.ArgumentNullException">`path` cannot be null.</exception>
+            <exception cref="T:System.IO.DirectoryNotFoundException">`path` doesn't exist.</exception>
+        </member>
+        <member name="M:System.IO.SafeTraversal.SafeTraversal.TraverseFiles(System.String,System.Boolean,System.IO.SearchOption,System.Func{System.IO.FileInfo,System.Boolean})">
+            <summary>
+            Iterates files using search option and custom filter.
+            Result of this operation is guaranteed to be safe for 
+            IO operation by specifying `fileSafetyChecking` paramater to `true` (For NTFS file system).
+            </summary>
+            <param name="path">Target path.</param>
+            <param name="fileSafetyChecking">If sets to true then result of the operation can be used directly for IO operation (For NTFS file system). Safer but slower.</param>
+            <param name="searchOption">Specifies whether to search the current directory, or the current directory and all subdirectories.</param>
+            <param name="filter">Custom filter to filter files based on condition.</param>
+            <returns>An IEnumerable of String.</returns>
+            <exception cref="T:System.ArgumentNullException">`path` cannot be null.</exception>
+            <exception cref="T:System.IO.DirectoryNotFoundException">`path` doesn't exist.</exception>
+            <exception cref="T:System.ArgumentNullException">`filter` cannot be null.</exception>
+        </member>
+        <member name="M:System.IO.SafeTraversal.SafeTraversal.TraverseFiles(System.String,System.Boolean,System.IO.SearchOption,System.IO.SafeTraversal.CommonSize)">
+            <summary>
+            Iteratess files using search option and filters based on the common size
+            Result of this operation is guaranteed to be safe for 
+            IO operation by specifying `fileSafetyChecking` paramater to `true` (For NTFS file system).
+            </summary>
+            <param name="path">Target path.</param>
+            <param name="fileSafetyChecking">If sets to true then result of the operation can be used directly for IO operation (For NTFS file system). Safer but slower.</param>
+            <param name="searchOption">Specifies whether to search the current directory, or the current directory and all subdirectories.</param>
+            <param name="commonSize">Windows's explorer-like size filtering option.</param>
+            <returns>An IEnumerable of String.</returns>
+            <exception cref="T:System.ArgumentNullException">`path` cannot be null.</exception>
+            <exception cref="T:System.IO.DirectoryNotFoundException">`path` doesn't exist.</exception>
+        </member>
+        <member name="M:System.IO.SafeTraversal.SafeTraversal.TraverseFiles(System.String,System.Boolean,System.IO.SearchOption,System.IO.SafeTraversal.SearchFileByNameOption)">
+            <summary>
+            Iterates files using search option and filters based on search file by name option.
+            Result of this operation is guaranteed to be safe for 
+            IO operation by specifying `fileSafetyChecking` paramater to `true` (For NTFS file system).
+            </summary>
+            <param name="path">Target path.</param>
+            <param name="fileSafetyChecking">If sets to true then result of the operation can be used directly for IO operation (For NTFS file system). Safer but slower.</param>
+            <param name="searchOption">Specifies whether to search the current directory, or the current directory and all subdirectories.</param>
+            <param name="searchFileByName">Specified option to filter files based on the name.</param>
+            <returns>An IEnumerable of String.</returns>
+            <exception cref="T:System.ArgumentNullException">`path` cannot be null.</exception>
+            <exception cref="T:System.IO.DirectoryNotFoundException">`path` doesn't exist.</exception>
+            <exception cref="T:System.ArgumentNullException">`searchFileByName` cannot be null.</exception>
+        </member>
+        <member name="M:System.IO.SafeTraversal.SafeTraversal.TraverseFiles(System.String,System.Boolean,System.IO.SearchOption,System.IO.SafeTraversal.SearchFileBySizeOption)">
+            <summary>
+            Iterates files using search option and filters based on size.
+            Result of this operation is guaranteed to be safe for 
+            IO operation by specifying `fileSafetyChecking` paramater to `true` (For NTFS file system).
+            </summary>
+            <param name="path">Target path.</param>
+            <param name="fileSafetyChecking">If sets to true then result of the operation can be used directly for IO operation (For NTFS file system). Safer but slower.</param>
+            <param name="searchOption">Specifies whether to search the current directory, or the current directory and all subdirectories.</param>
+            <param name="searchFileBySize">Specifies size option (B, KB, MB.. PB)</param>
+            <returns>An IEnumerable of String.</returns>
+            <exception cref="T:System.ArgumentNullException">`path` cannot be null.</exception>
+            <exception cref="T:System.IO.DirectoryNotFoundException">`path` doesn't exist.</exception>
+            <exception cref="T:System.ArgumentNullException">`searchFileBySize` cannot be null.</exception>
+        </member>
+        <member name="M:System.IO.SafeTraversal.SafeTraversal.TraverseFiles(System.String,System.Boolean,System.IO.SearchOption,System.IO.SafeTraversal.SearchFileBySizeRangeOption)">
+            <summary>
+            Iterates files using search option and filters based on size range.
+            Result of this operation is guaranteed to be safe for 
+            IO operation by specifying `fileSafetyChecking` paramater to `true` (For NTFS file system).
+            </summary>
+            <param name="path">Target path.</param>
+            <param name="fileSafetyChecking">If sets to true then result of the operation can be used directly for IO operation (For NTFS file system). Safer but slower.</param>
+            <param name="searchOption">Specifies whether to search the current directory, or the current directory and all subdirectories.</param>
+            <param name="searchFileBySizeRange">Specifies size range option (B, KB, MB.. PB).</param>
+            <returns>An IEnumerable of String.</returns>
+            <exception cref="T:System.ArgumentNullException">`path` cannot be null.</exception>
+            <exception cref="T:System.IO.DirectoryNotFoundException">`path` doesn't exist.</exception>
+            <exception cref="T:System.ArgumentNullException">`searchFileBySizeRange` cannot be null.</exception>
+        </member>
+        <member name="M:System.IO.SafeTraversal.SafeTraversal.TraverseFiles(System.String,System.Boolean,System.IO.SearchOption,System.IO.SafeTraversal.SearchFileByDateOption)">
+            <summary>
+            Iterates files using search option and filters based on date (creation, last access, last modified).
+            Result of this operation is guaranteed to be safe for 
+            IO operation by specifying `fileSafetyChecking` paramater to `true` (For NTFS file system).
+            </summary>
+            <param name="path">Target path.</param>
+            <param name="fileSafetyChecking">If sets to true then result of the operation can be used directly for IO operation (For NTFS file system). Safer but slower.</param>
+            <param name="searchOption">Specifies whether to search the current directory, or the current directory and all subdirectories.</param>
+            <param name="searchFileByDate">Date option used for filtering.</param>
+            <returns>An IEnumerable of String.</returns>
+            <exception cref="T:System.ArgumentNullException">`path` cannot be null.</exception>
+            <exception cref="T:System.IO.DirectoryNotFoundException">`path` doesn't exist.</exception>
+            <exception cref="T:System.ArgumentNullException">`searchFileByDate` cannot be null.</exception>
+        </member>
+        <member name="M:System.IO.SafeTraversal.SafeTraversal.TraverseFiles(System.String,System.Boolean,System.IO.SearchOption,System.IO.SafeTraversal.SearchFileByDateRangeOption)">
+            <summary>
+            Iterates files using search option and filters based on date range (creation, last access, last modified).
+            Result of this operation is guaranteed to be safe for 
+            IO operation by specifying `fileSafetyChecking` paramater to `true` (For NTFS file system).
+            </summary>
+            <param name="path">Target path.</param>
+            <param name="fileSafetyChecking">If sets to true then result of the operation can be used directly for IO operation (For NTFS file system). Safer but slower.</param>
+            <param name="searchOption">Specifies whether to search the current directory, or the current directory and all subdirectories.</param>
+            <param name="searchFileByDateRange">Date range option used for filtering.</param>
+            <returns>An IEnumerable of String.</returns>
+            <exception cref="T:System.ArgumentNullException">`path` cannot be null.</exception>
+            <exception cref="T:System.IO.DirectoryNotFoundException">`path` doesn't exist.</exception>
+            <exception cref="T:System.ArgumentNullException">`searchFileByDateRange` cannot be null.</exception>
+        </member>
+        <member name="M:System.IO.SafeTraversal.SafeTraversal.TraverseFiles(System.String,System.Boolean,System.IO.SearchOption,System.IO.SafeTraversal.SearchFileByRegularExpressionOption)">
+            <summary>
+            Iterates files using search option and filters based on regular expression pattern.
+            Result of this operation is guaranteed to be safe for 
+            IO operation by specifying `fileSafetyChecking` paramater to `true` (For NTFS file system).
+            </summary>
+            <param name="path">Target path.</param>
+            <param name="fileSafetyChecking">If sets to true then result of the operation can be used directly for IO operation (For NTFS file system). Safer but slower.</param>
+            <param name="searchOption">Specifies whether to search the current directory, or the current directory and all subdirectories.</param>
+            <param name="searchFileByRegularExpressionPattern">Regular expression pattern.</param>
+            <returns>An IEnumerable of String.</returns>
+            <exception cref="T:System.ArgumentNullException">`path` cannot be null.</exception>
+            <exception cref="T:System.IO.DirectoryNotFoundException">`path` doesn't exist.</exception>
+            <exception cref="T:System.ArgumentNullException">`searchFileByRegularExpressionPattern` cannot be null.</exception>
+        </member>
+        <member name="M:System.IO.SafeTraversal.SafeTraversal.TraverseFiles(System.String,System.Boolean,System.IO.SearchOption,System.IO.SafeTraversal.SafeTraversalFileSearchOptions)">
+            <summary>
+            Iterates files using search option and filters based on composite option.
+            Result of this operation is guaranteed to be safe for 
+            IO operation by specifying `fileSafetyChecking` paramater to `true` (For NTFS file system).
+            </summary>
+            <param name="path">Target path.</param>
+            <param name="fileSafetyChecking">If sets to true then result of the operation can be used directly for IO operation (For NTFS file system). Safer but slower.</param>
+            <param name="searchOption">Specifies whether to search the current directory, or the current directory and all subdirectories.</param>
+            <param name="fileSearchOptions">Composite option that holds many options for filtering.</param>
+            <returns>An IEnumerable of String.</returns>
+            <exception cref="T:System.ArgumentNullException">`path` cannot be null.</exception>
+            <exception cref="T:System.IO.DirectoryNotFoundException">`path` doesn't exist.</exception>
+            <exception cref="T:System.ArgumentNullException">`fileSearchOptions` cannot be null.</exception>
+        </member>
+        <member name="M:System.IO.SafeTraversal.SafeTraversal.TraverseDirectories(System.String)">
+            <summary>
+            Iterate top level directories.
+            </summary>
+            <param name="path">Target path.</param>
+            <returns>IEnumerable of String.</returns>
+            <exception cref="T:System.ArgumentNullException">`path` cannot be null.</exception>
+            <exception cref="T:System.IO.DirectoryNotFoundException">`path` doesn't exist.</exception>
+        </member>
+        <member name="M:System.IO.SafeTraversal.SafeTraversal.TraverseDirectories(System.String,System.IO.SearchOption)">
+            <summary>
+            Iterate directories using search option.
+            </summary>
+            <param name="path">Target path.</param>
+            <param name="searchOption">Specifies whether to search the current directory, or the current directory and all subdirectories.</param>
+            <returns>IEnumerable of String.</returns>
+            <exception cref="T:System.ArgumentNullException">`path` cannot be null.</exception>
+            <exception cref="T:System.IO.DirectoryNotFoundException">`path` doesn't exist.</exception>
+        </member>
+        <member name="M:System.IO.SafeTraversal.SafeTraversal.TraverseDirectories(System.String,System.IO.SearchOption,System.Func{System.IO.DirectoryInfo,System.Boolean})">
+            <summary>
+            Iterate directories using search option and custom filter.
+            </summary>
+            <param name="path">Target path.</param>
+            <param name="searchOption">Specifies whether to search the current directory, or the current directory and all subdirectories.</param>
+            <param name="filter">Custom filter to filter files based on condition.</param>
+            <returns>IEnumerable of String.</returns>
+            <exception cref="T:System.ArgumentNullException">`path` cannot be null.</exception>
+            <exception cref="T:System.IO.DirectoryNotFoundException">`path` doesn't exist.</exception>
+            <exception cref="T:System.ArgumentNullException">`filter` cannot be null.</exception> 
+        </member>
+        <member name="M:System.IO.SafeTraversal.SafeTraversal.TraverseDirectories(System.String,System.IO.SearchOption,System.IO.FileAttributes)">
+            <summary>
+            Iterate directories using search option and directory attributes.
+            </summary>
+            <param name="path">Target path.</param>
+            <param name="searchOption">Specifies whether to search the current directory, or the current directory and all subdirectories.</param>
+            <param name="attributes">Directory attributes.</param>
+            <returns>IEnumerable of String.</returns>
+            <exception cref="T:System.ArgumentNullException">`path` cannot be null.</exception>
+            <exception cref="T:System.IO.DirectoryNotFoundException">`path` doesn't exist.</exception>
+        </member>
+        <member name="M:System.IO.SafeTraversal.SafeTraversal.TraverseDirectories(System.String,System.IO.SearchOption,System.IO.SafeTraversal.SearchDirectoryByDateOption)">
+            <summary>
+            Iterate directories using search option and filters based on date (creation, last access, last modified).
+            </summary>
+            <param name="path">Target path.</param>
+            <param name="searchOption">Specifies whether to search the current directory, or the current directory and all subdirectories.</param>
+            <param name="searchDirectoryByDateOption">Date option used for filtering.</param>
+            <returns>IEnumerable of String.</returns>
+            <exception cref="T:System.ArgumentNullException">`path` cannot be null.</exception>
+            <exception cref="T:System.IO.DirectoryNotFoundException">`path` doesn't exist.</exception>
+            <exception cref="T:System.ArgumentNullException">`searchDirectoryByDateOption` cannot be null.</exception> 
+        </member>
+        <member name="M:System.IO.SafeTraversal.SafeTraversal.TraverseDirectories(System.String,System.IO.SearchOption,System.IO.SafeTraversal.SearchDirectoryByNameOption)">
+            <summary>
+            Iterate directories using search option and filters based on name.
+            </summary>
+            <param name="path">Target path.</param>
+            <param name="searchOption">Specifies whether to search the current directory, or the current directory and all subdirectories.</param>
+            <param name="searchDirectoryByName">Specified option to filter files based on the name.</param>
+            <returns>IEnumerable of String.</returns>
+            <exception cref="T:System.ArgumentNullException">`path` cannot be null.</exception>
+            <exception cref="T:System.IO.DirectoryNotFoundException">`path` doesn't exist.</exception>
+            <exception cref="T:System.ArgumentNullException">`searchDirectoryByName` cannot be null.</exception> 
+        </member>
+        <member name="M:System.IO.SafeTraversal.SafeTraversal.TraverseDirectories(System.String,System.IO.SearchOption,System.IO.SafeTraversal.SearchDirectoryByRegularExpressionOption)">
+            <summary>
+            Iterate directories using search option and filters based on regular expression pattern.
+            </summary>
+            <param name="path">Target path.</param>
+            <param name="searchOption">Specifies whether to search the current directory, or the current directory and all subdirectories.</param>
+            <param name="searchDirectoryByRegularExpressionPattern">Regular expression pattern.</param>
+            <returns>IEnumerable of String.</returns>
+            <exception cref="T:System.ArgumentNullException">`path` cannot be null.</exception>
+            <exception cref="T:System.IO.DirectoryNotFoundException">`path` doesn't exist.</exception>
+            <exception cref="T:System.ArgumentNullException">`searchDirectoryByRegularExpressionPattern` cannot be null.</exception> 
+        </member>
+        <member name="M:System.IO.SafeTraversal.SafeTraversal.TraverseDirectories(System.String,System.IO.SearchOption,System.IO.SafeTraversal.SafeTraversalDirectorySearchOptions)">
+            <summary>
+            Iterate directories using search option and filters based on composite option.
+            </summary>
+            <param name="path">Target path.</param>
+            <param name="searchOption">Specifies whether to search the current directory, or the current directory and all subdirectories.</param>
+            <param name="directorySearchOptions">Composite option that holds many options for filtering.</param>
+            <returns>IEnumerable of DirectoryInfo.</returns>
+            <exception cref="T:System.ArgumentNullException">`path` cannot be null.</exception>
+            <exception cref="T:System.IO.DirectoryNotFoundException">`path` doesn't exist.</exception>
+            <exception cref="T:System.ArgumentNullException">`searchDirectoryByRegularExpressionPattern` cannot be null.</exception>
+        </member>
+        <member name="M:System.IO.SafeTraversal.SafeTraversal.IsSafeFile(System.String)">
+            <summary>
+            Safe file is a file that doesn't have Deny Access Control Type. 
+            If a file returns true when being checked, then that file is ready
+            for IO operation. Or at least Open Read operation.
+            </summary>
+            <param name="filename">Filename.</param>
+            <returns>True/False regarding file's state. True means file is ready for IO operation. Otherwise false.</returns>
+        </member>
+        <member name="M:System.IO.SafeTraversal.SafeTraversal.IsSafeFile(System.IO.FileInfo)">
+            <summary>
+            Safe file is a file that doesn't have Deny Access Control Type. 
+            If a file returns true when being checked, then that file is ready
+            for IO operation. Or at least Open Read operation.
+            </summary>
+            <param name="fileInfo">Filename in FileInfo type.</param>
+            <returns>True/False regarding file's state. True means file is ready for IO operation. Otherwise false.</returns>
+        </member>
+        <member name="M:System.IO.SafeTraversal.SafeTraversal.FindParents(System.IO.DirectoryInfo)">
+            <summary>
+            Find all parents all the way up to the root (ie: C:\ or D:\) from current path.
+            </summary>
+            <param name="path">Valid path. If path is not found, DirectoryNotFoundException will be thrown.</param>
+            <returns>IEnumerable of DirectoryInfo representing all parents. Null if current path is a root.</returns>
+        </member>
+        <member name="M:System.IO.SafeTraversal.SafeTraversal.FindParents(System.IO.FileInfo)">
+            <summary>
+            Find all parents all the way up to the root (ie: C:\ or D:\) from current path.
+            </summary>
+            <param name="file">Valid file location. If file is not found, FileNotFoundException will be thrown.</param>
+            <returns>IEnumerable of DirectoryInfo representing all parents.</returns>
+        </member>
+        <member name="T:System.IO.SafeTraversal.SafeTraversalDirectorySearchOptions">
+            <summary>
+            An option class to specify more than one search criteria for directories searching.
+            </summary>
+        </member>
+        <member name="P:System.IO.SafeTraversal.SafeTraversalDirectorySearchOptions.DirectoryNameOption">
+            <summary>
+            Gets/sets directory name option.
+            </summary>
+        </member>
+        <member name="P:System.IO.SafeTraversal.SafeTraversalDirectorySearchOptions.RegularExpressionOption">
+            <summary>
+            Gets/sets regular expression pattern.
+            </summary>
+        </member>
+        <member name="P:System.IO.SafeTraversal.SafeTraversalDirectorySearchOptions.DateOption">
+            <summary>
+            Gets/sets date option.
+            </summary>
+        </member>
+        <member name="P:System.IO.SafeTraversal.SafeTraversalDirectorySearchOptions.DirectoryAttributes">
+            <summary>
+            Gets/sets directory attributes option.
+            </summary>
+        </member>
+        <member name="T:System.IO.SafeTraversal.SafeTraversalFileSearchOptions">
+            <summary>
+            An option class to specify more than one search criteria.
+            </summary>
+        </member>
+        <member name="P:System.IO.SafeTraversal.SafeTraversalFileSearchOptions.FileNameOption">
+            <summary>
+            Gets/sets file name option.
+            </summary>
+        </member>
+        <member name="P:System.IO.SafeTraversal.SafeTraversalFileSearchOptions.Extension">
+            <summary>
+            Gets/sets extension.
+            </summary>
+        </member>
+        <member name="P:System.IO.SafeTraversal.SafeTraversalFileSearchOptions.FileAttributes">
+            <summary>
+            Gets/sets file attributes.
+            </summary>
+        </member>
+        <member name="P:System.IO.SafeTraversal.SafeTraversalFileSearchOptions.CommonSize">
+            <summary>
+            Gets/sets common size enumeration.
+            </summary>
+        </member>
+        <member name="P:System.IO.SafeTraversal.SafeTraversalFileSearchOptions.SizeOption">
+            <summary>
+            Gets/sets size option.
+            </summary>
+        </member>
+        <member name="P:System.IO.SafeTraversal.SafeTraversalFileSearchOptions.SizeRangeOption">
+            <summary>
+            Gets/sets size range option.
+            </summary>
+        </member>
+        <member name="P:System.IO.SafeTraversal.SafeTraversalFileSearchOptions.DateOption">
+            <summary>
+            Gets/sets date option.
+            </summary>
+        </member>
+        <member name="P:System.IO.SafeTraversal.SafeTraversalFileSearchOptions.DateRangeOption">
+            <summary>
+            Gets/sets date range option.
+            </summary>
+        </member>
+        <member name="P:System.IO.SafeTraversal.SafeTraversalFileSearchOptions.RegularExpressionOption">
+            <summary>
+            Gets/sets regular expression option.
+            </summary>
+        </member>
+        <member name="T:System.IO.SafeTraversal.SizeType">
+            <summary>
+            Enumeration that is used for size convertion.
+            </summary>
+        </member>
+        <member name="F:System.IO.SafeTraversal.SizeType.Bytes">
+            <summary>
+            Power(1024,0)
+            </summary>
+        </member>
+        <member name="F:System.IO.SafeTraversal.SizeType.KiloBytes">
+            <summary>
+            Power(1024,1)
+            </summary>
+        </member>
+        <member name="F:System.IO.SafeTraversal.SizeType.MegaBytes">
+            <summary>
+            Power(1024,2)
+            </summary>
+        </member>
+        <member name="F:System.IO.SafeTraversal.SizeType.GigaBytes">
+            <summary>
+            Power(1024,3)
+            </summary>
+        </member>
+        <member name="F:System.IO.SafeTraversal.SizeType.TeraBytes">
+            <summary>
+            Power(1024,4)
+            </summary>
+        </member>
+        <member name="F:System.IO.SafeTraversal.SizeType.PetaBytes">
+            <summary>
+            Power(1024,5)
+            </summary>
+        </member>
+        <member name="T:System.IO.SafeTraversal.DateComparisonType">
+            <summary>
+            Enumeration for Date/Date Range filtering.
+            </summary>
+        </member>
+        <member name="F:System.IO.SafeTraversal.DateComparisonType.CreationDate">
+            <summary>
+            Filter based on creation date
+            </summary>
+        </member>
+        <member name="F:System.IO.SafeTraversal.DateComparisonType.LastModificationDate">
+            <summary>
+            Filter based on last modification date
+            </summary>
+        </member>
+        <member name="F:System.IO.SafeTraversal.DateComparisonType.LastAccessDate">
+            <summary>
+            Filter based on last access date
+            </summary>
+        </member>
+        <member name="T:System.IO.SafeTraversal.CommonSize">
+            <summary>
+            Enumeration that depicts Windows Explorer size filtering.
+            </summary>
+        </member>
+        <member name="F:System.IO.SafeTraversal.CommonSize.Empty">
+            <summary>
+            0 KB
+            </summary>
+        </member>
+        <member name="F:System.IO.SafeTraversal.CommonSize.Tiny">
+            <summary>
+            0 - 10 KB
+            </summary>
+        </member>
+        <member name="F:System.IO.SafeTraversal.CommonSize.Small">
+            <summary>
+            10-100 KB
+            </summary>
+        </member>
+        <member name="F:System.IO.SafeTraversal.CommonSize.Medium">
+            <summary>
+            100 KB - 1 MB
+            </summary>
+        </member>
+        <member name="F:System.IO.SafeTraversal.CommonSize.Large">
+            <summary>
+            1 - 16 MB
+            </summary>
+        </member>
+        <member name="F:System.IO.SafeTraversal.CommonSize.Huge">
+            <summary>
+            16 - 128 MB
+            </summary>
+        </member>
+        <member name="F:System.IO.SafeTraversal.CommonSize.Gigantic">
+            <summary>
+            > 128 MB 
+            </summary>
+        </member>
+        <member name="T:System.IO.SafeTraversal.SearchFileByNameOption">
+            <summary>
+            Option class for searching files based on filename, extension and case sensitiveness.
+            </summary>
+        </member>
+        <member name="M:System.IO.SafeTraversal.SearchFileByNameOption.#ctor(System.String,System.Boolean,System.Boolean)">
+            <summary>
+            Default constructor for SearchFileByNameOption.
+            </summary>
+            <param name="name">Filename.</param>
+            <param name="includeExtension">Default to false. Specifying true to include extension in search algorithm.</param>
+            <param name="caseSensitive">Turn case sensitive/insensitive mode.</param>
+        </member>
+        <member name="P:System.IO.SafeTraversal.SearchFileByNameOption.Name">
+            <summary>
+            Gets name used for filtering.
+            </summary>
+        </member>
+        <member name="P:System.IO.SafeTraversal.SearchFileByNameOption.CaseSensitive">
+            <summary>
+            Gets status for case sensitivity.
+            </summary>
+        </member>
+        <member name="P:System.IO.SafeTraversal.SearchFileByNameOption.IncludeExtension">
+            <summary>
+            Gets status whether or not extension is included in search.
+            </summary>
+        </member>
+        <member name="T:System.IO.SafeTraversal.SearchFileBySizeOption">
+            <summary>
+            Option class for searching files based on size.
+            </summary>
+        </member>
+        <member name="M:System.IO.SafeTraversal.SearchFileBySizeOption.#ctor(System.Double,System.IO.SafeTraversal.SizeType)">
+            <summary>
+            Default constructor for instantiating SearchFileBySizeOption class.
+            </summary>
+            <param name="size">Preferred Size.</param>
+            <param name="sizeType">Size type.</param>
+        </member>
+        <member name="P:System.IO.SafeTraversal.SearchFileBySizeOption.Size">
+            <summary>
+            Gets size in double.
+            </summary>
+        </member>
+        <member name="P:System.IO.SafeTraversal.SearchFileBySizeOption.SizeType">
+            <summary>
+            Gets size type that specifies unit.
+            </summary>
+        </member>
+        <member name="T:System.IO.SafeTraversal.SearchFileBySizeRangeOption">
+            <summary>
+            Option class for searching files based on defined size range.
+            </summary>
+        </member>
+        <member name="M:System.IO.SafeTraversal.SearchFileBySizeRangeOption.#ctor(System.Double,System.Double,System.IO.SafeTraversal.SizeType)">
+            <summary>
+            Default constructor.
+            </summary>
+            <param name="lowerBoundSize">Lower bound size.</param>
+            <param name="upperBoundSize">Upper bound size.</param>
+            <param name="sizeType">Size type.</param>
+        </member>
+        <member name="P:System.IO.SafeTraversal.SearchFileBySizeRangeOption.LowerBoundSize">
+            <summary>
+            Gets lower bound size in double.
+            </summary>
+        </member>
+        <member name="P:System.IO.SafeTraversal.SearchFileBySizeRangeOption.UpperBoundSize">
+            <summary>
+            Gets upper bound size in double.
+            </summary>
+        </member>
+        <member name="P:System.IO.SafeTraversal.SearchFileBySizeRangeOption.SizeType">
+            <summary>
+            Gets size type that specifies unit.
+            </summary>
+        </member>
+        <member name="T:System.IO.SafeTraversal.SearchFileByDateOption">
+            <summary>
+            Option class for searching files based on date in specified comparison type.
+            </summary>
+        </member>
+        <member name="M:System.IO.SafeTraversal.SearchFileByDateOption.#ctor(System.DateTime,System.IO.SafeTraversal.DateComparisonType)">
+            <summary>
+            Default constructor for instantiating this class.
+            </summary>
+            <param name="date">Date only. No time is used.</param>
+            <param name="dateComparisonType">Date comparison type.</param>
+        </member>
+        <member name="P:System.IO.SafeTraversal.SearchFileByDateOption.Date">
+            <summary>
+            Gets date that is used for filtering.
+            </summary>
+        </member>
+        <member name="P:System.IO.SafeTraversal.SearchFileByDateOption.DateComparisonType">
+            <summary>
+            Gets date comparison type.
+            </summary>
+        </member>
+        <member name="T:System.IO.SafeTraversal.SearchFileByDateRangeOption">
+            <summary>
+            Option class for searching files based on date range in specified date comparison type.
+            </summary>
+        </member>
+        <member name="M:System.IO.SafeTraversal.SearchFileByDateRangeOption.#ctor(System.DateTime,System.DateTime,System.IO.SafeTraversal.DateComparisonType)">
+            <summary>
+            Default constructor for instantiating this class.
+            </summary>
+            <param name="lowerBoundDate">Lower bound date. Please, specifiy in date format only.</param>
+            <param name="upperBoundDate">Upper bound date. Please, specifiy in date format only,</param>
+            <param name="dateComparisonType">Date comparison type.</param>
+        </member>
+        <member name="P:System.IO.SafeTraversal.SearchFileByDateRangeOption.LowerBoundDate">
+            <summary>
+            Gets lower bound date.
+            </summary>
+        </member>
+        <member name="P:System.IO.SafeTraversal.SearchFileByDateRangeOption.UpperBoundDate">
+            <summary>
+            Gets upper bound date.
+            </summary>
+        </member>
+        <member name="P:System.IO.SafeTraversal.SearchFileByDateRangeOption.DateComparisonType">
+            <summary>
+            Gets date comparison type.
+            </summary>
+        </member>
+        <member name="T:System.IO.SafeTraversal.SearchFileByRegularExpressionOption">
+            <summary>
+            Option class for searching files based on .NET regular expression pattern.
+            </summary>
+        </member>
+        <member name="M:System.IO.SafeTraversal.SearchFileByRegularExpressionOption.#ctor(System.String,System.Boolean)">
+            <summary>
+            Default constructor.
+            </summary>
+            <param name="pattern">Valid .NET regular expression pattern.</param>
+            <param name="includeExtension">True/False to specify whether or not extension is included in pattern matching.</param>
+        </member>
+        <member name="P:System.IO.SafeTraversal.SearchFileByRegularExpressionOption.Pattern">
+            <summary>
+            Gets regular expression pattern.
+            </summary>
+        </member>
+        <member name="P:System.IO.SafeTraversal.SearchFileByRegularExpressionOption.IncludeExtension">
+            <summary>
+            Gets status whether or not extension is included in search.
+            </summary>
+        </member>
+        <member name="T:System.IO.SafeTraversal.SearchDirectoryByNameOption">
+            <summary>
+            Option class for searching directories based on name.
+            </summary>
+        </member>
+        <member name="M:System.IO.SafeTraversal.SearchDirectoryByNameOption.#ctor(System.String,System.Boolean)">
+            <summary>
+            Default constructor.
+            </summary>
+            <param name="name">Specified name.</param>
+            <param name="caseSensitive">Set to true/false to specify whether or not case sensitiveness is used.</param>
+        </member>
+        <member name="P:System.IO.SafeTraversal.SearchDirectoryByNameOption.Name">
+            <summary>
+            Gets name used for filtering.
+            </summary>
+        </member>
+        <member name="P:System.IO.SafeTraversal.SearchDirectoryByNameOption.CaseSensitive">
+            <summary>
+            Gets status for case sensitivity.
+            </summary>
+        </member>
+        <member name="T:System.IO.SafeTraversal.SearchDirectoryByRegularExpressionOption">
+            <summary>
+            Option class for searching directories based on .NET regular expression pattern.
+            </summary>
+        </member>
+        <member name="M:System.IO.SafeTraversal.SearchDirectoryByRegularExpressionOption.#ctor(System.String)">
+            <summary>
+            Default constructor.
+            </summary>
+            <param name="pattern">Valid .NET regular expression pattern.</param>
+        </member>
+        <member name="P:System.IO.SafeTraversal.SearchDirectoryByRegularExpressionOption.Pattern">
+            <summary>
+            Gets regular expression pattern.
+            </summary>
+        </member>
+        <member name="T:System.IO.SafeTraversal.SearchDirectoryByDateOption">
+            <summary>
+            Option class for searching directories based on date.
+            </summary>
+        </member>
+        <member name="M:System.IO.SafeTraversal.SearchDirectoryByDateOption.#ctor(System.DateTime,System.IO.SafeTraversal.DateComparisonType)">
+            <summary>
+            Default constructor.
+            </summary>
+            <param name="date">Date only.</param>
+            <param name="dateComparisonType">Date comparison type.</param>
+        </member>
+        <member name="P:System.IO.SafeTraversal.SearchDirectoryByDateOption.Date">
+            <summary>
+            Gets date specified for filtering.
+            </summary>
+        </member>
+        <member name="P:System.IO.SafeTraversal.SearchDirectoryByDateOption.DateComparisonType">
+            <summary>
+            Gets date comparison type.
+            </summary>
+        </member>
+        <member name="T:System.IO.SafeTraversal.Helpers">
+            <summary>
+            Helpers class for System.IO.SafeTraversal
+            </summary>
+        </member>
+        <member name="M:System.IO.SafeTraversal.Helpers.FindParents(System.IO.DirectoryInfo)">
+            <summary>
+            Find all parents all the way up to the root (ie: C:\ or D:\) from current path.
+            </summary>
+            <param name="path">Valid path. If path is not found, DirectoryNotFoundException will be thrown.</param>
+            <returns>IEnumerable of DirectoryInfo representing all parents. Null if current path is a root.</returns>
+        </member>
+        <member name="M:System.IO.SafeTraversal.Helpers.FindParents(System.IO.FileInfo)">
+            <summary>
+            Find all parents all the way up to the root (ie: C:\ or D:\) from current path.
+            </summary>
+            <param name="file">Valid file location. If file is not found, FileNotFoundException will be thrown.</param>
+            <returns>IEnumerable of DirectoryInfo representing all parents.</returns>
+        </member>
+        <member name="T:System.IO.SafeTraversal.TraversalError">
+            <summary>
+            An error log class.
+            </summary>
+        </member>
+        <member name="M:System.IO.SafeTraversal.TraversalError.#ctor(System.String)">
+            <summary>
+            Default constructor that accepts error message as a string.
+            </summary>
+            <param name="errorMessage">Error message as a string</param>
+        </member>
+        <member name="P:System.IO.SafeTraversal.TraversalError.ErrorMessage">
+            <summary>
+            Gets error message.
+            </summary>
+        </member>
+    </members>
+</doc>

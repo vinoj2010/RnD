@@ -1,0 +1,10 @@
+C:\Users\vinoj\source\repos\RnD\ObfuscationChecker\ObfuscationCheckerLib\bin\Debug\ObfuscationCheckerLib.dll
+C:\Users\vinoj\source\repos\RnD\ObfuscationChecker\ObfuscationCheckerLib\bin\Debug\ObfuscationCheckerLib.pdb
+C:\Users\vinoj\source\repos\RnD\ObfuscationChecker\ObfuscationCheckerLib\bin\Debug\Microsoft.Practices.Unity.dll
+C:\Users\vinoj\source\repos\RnD\ObfuscationChecker\ObfuscationCheckerLib\obj\Debug\ObfuscationCheckerLib.csproj.CoreCompileInputs.cache
+C:\Users\vinoj\source\repos\RnD\ObfuscationChecker\ObfuscationCheckerLib\obj\Debug\ObfuscationCheckerLib.csproj.CopyComplete
+C:\Users\vinoj\source\repos\RnD\ObfuscationChecker\ObfuscationCheckerLib\obj\Debug\ObfuscationCheckerLib.dll
+C:\Users\vinoj\source\repos\RnD\ObfuscationChecker\ObfuscationCheckerLib\obj\Debug\ObfuscationCheckerLib.pdb
+C:\Users\vinoj\source\repos\RnD\ObfuscationChecker\ObfuscationCheckerLib\bin\Debug\System.IO.SafeTraversal.dll
+C:\Users\vinoj\source\repos\RnD\ObfuscationChecker\ObfuscationCheckerLib\bin\Debug\System.IO.SafeTraversal.xml
+C:\Users\vinoj\source\repos\RnD\ObfuscationChecker\ObfuscationCheckerLib\obj\Debug\ObfuscationCheckerLib.csprojAssemblyReference.cache

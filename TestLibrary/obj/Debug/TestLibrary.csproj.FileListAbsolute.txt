@@ -1,0 +1,5 @@
+C:\Users\vinoj\source\repos\RnD\TestLibrary\bin\Debug\TestLibrary.dll
+C:\Users\vinoj\source\repos\RnD\TestLibrary\bin\Debug\TestLibrary.pdb
+C:\Users\vinoj\source\repos\RnD\TestLibrary\obj\Debug\TestLibrary.csproj.CoreCompileInputs.cache
+C:\Users\vinoj\source\repos\RnD\TestLibrary\obj\Debug\TestLibrary.dll
+C:\Users\vinoj\source\repos\RnD\TestLibrary\obj\Debug\TestLibrary.pdb
